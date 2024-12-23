@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Header from "../components/layout/Header";
 import Hero from "../components/sections/Hero";
 import { AboutSection } from "@/components/sections/About";
 import SkillsSection from "../components/sections/Skills";
@@ -110,75 +111,15 @@ const LoadingScreen = () => {
     );
 };
 
-const Header = () => {
-    const [isDark, setIsDark] = useState(false);
-    const menuItems = ["Home", "Experience", "Skills", "Projects", "Contact"];
-
-    const toggleTheme = () => {
-        setIsDark(!isDark);
-        document.documentElement.classList.toggle('dark');
-    };
-
-    return (
-        <header className="fixed top-0 left-0 right-0 z-50 bg-[#E6E9F0]/80 dark:bg-[#2C5364]/80 backdrop-blur-sm">
-            <div className="container mx-auto px-4">
-                <div className="flex items-center justify-between h-16">
-                    <div className="text-2xl font-bold text-[#2C5364] dark:text-[#8EC5FC]">
-                        OS
-                    </div>
-
-                    <div className="flex items-center space-x-8">
-                        <nav>
-                            <ul className="flex space-x-6">
-                                {menuItems.map((item) => (
-                                    <li key={item}>
-                                        <a
-                                            href={`#${item.toLowerCase()}`}
-                                            className="text-[#2C5364] dark:text-[#8EC5FC] hover:text-[#6CA2BC]
-                                                     dark:hover:text-[#8EC5FC] transition-colors"
-                                        >
-                                            {item}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </nav>
-
-                        <button
-                            onClick={toggleTheme}
-                            className="p-2 rounded-lg bg-[#E6E9F0] dark:bg-[#2C5364]
-                                     text-[#2C5364] dark:text-[#8EC5FC]
-                                     hover:bg-[#6CA2BC]/20 dark:hover:bg-[#8EC5FC]/20
-                                     transition-colors"
-                        >
-                            {isDark ? '🌞' : '🌙'}
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </header>
-    );
-};
-
 const Home: React.FC = () => {
     const [loading, setLoading] = useState(true);
-    const [showContent, setShowContent] = useState(false);
 
     useEffect(() => {
-        // Loading screen duration
-        const loadingTimer = setTimeout(() => {
+        const timer = setTimeout(() => {
             setLoading(false);
         }, 5000);
 
-        // Delay for content appearance after loading
-        const contentTimer = setTimeout(() => {
-            setShowContent(true);
-        }, 5500);
-
-        return () => {
-            clearTimeout(loadingTimer);
-            clearTimeout(contentTimer);
-        };
+        return () => clearTimeout(timer);
     }, []);
 
     return (
@@ -187,44 +128,70 @@ const Home: React.FC = () => {
                 {loading && <LoadingScreen />}
             </AnimatePresence>
 
-            {showContent && (
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                    className="bg-gradient-to-br from-[#E6E9F0] to-[#EEF1F5] dark:from-[#2C5364] dark:to-[#203A43] text-[#2C5364] dark:text-[#8EC5FC]"
+            <motion.div
+                initial="initial"
+                animate="animate"
+                className="bg-gradient-to-br from-[#E6E9F0] to-[#EEF1F5] dark:from-[#2C5364] dark:to-[#203A43] text-[#2C5364] dark:text-[#8EC5FC]"
+                style={{ opacity: loading ? 0 : 1 }}
+            >
+                <Header />
+
+                <motion.main
+                    variants={staggerChildren}
+                    className="px-4 sm:px-8 py-12 mx-auto max-w-screen-xl"
                 >
-                    <Header />
+                    <motion.section
+                        id="home"
+                        variants={fadeInUp}
+                        className="flex flex-col items-center justify-center py-16 md:py-24 text-center space-y-8"
+                    >
+                        <Hero />
+                    </motion.section>
 
-                    <motion.main className="px-4 sm:px-8 py-12 mx-auto max-w-screen-xl mt-16">
-                        <section id="home" className="py-16 md:py-24">
-                            <Hero />
-                        </section>
 
-                        <section id="experience" className="py-16 md:py-24 bg-[#E6E9F0]/50 dark:bg-[#2C5364]/50">
-                            <ExperienceSection />
-                        </section>
 
-                        <section id="skills" className="py-16 md:py-24">
-                            <SkillsSection />
-                        </section>
+                    <motion.section
+                        id="experience"
+                        variants={fadeInUp}
+                        className="space-y-12 py-16 md:py-24 bg-[#E6E9F0]/50 dark:bg-[#2C5364]/50"
+                    >
+                        <ExperienceSection />
+                    </motion.section>
 
-                        <section id="projects" className="py-16 md:py-24 bg-[#E6E9F0]/50 dark:bg-[#2C5364]/50">
-                            <ProjectsShowcase />
-                        </section>
+                    <motion.section
+                        id="skills"
+                        variants={fadeInUp}
+                        className="space-y-12 py-16 md:py-24"
+                    >
+                        <SkillsSection />
+                    </motion.section>
 
-                        <section id="contact" className="py-16 md:py-24">
-                            <ContactSection />
-                        </section>
-                    </motion.main>
+                    <motion.section
+                        id="projects"
+                        variants={fadeInUp}
+                        className="space-y-12 py-16 md:py-24 bg-[#E6E9F0]/50 dark:bg-[#2C5364]/50"
+                    >
+                        <ProjectsShowcase />
+                    </motion.section>
 
-                    <footer className="py-8 bg-[#E6E9F0] dark:bg-[#2C5364] text-center">
-                        <p className="text-sm text-[#2C5364]/80 dark:text-[#8EC5FC]/80">
-                            © {new Date().getFullYear()} Oumar SY. All Rights Reserved.
-                        </p>
-                    </footer>
-                </motion.div>
-            )}
+                    <motion.section
+                        id="contact"
+                        variants={fadeInUp}
+                        className="space-y-12 py-16 md:py-24"
+                    >
+                        <ContactSection />
+                    </motion.section>
+                </motion.main>
+
+                <motion.footer
+                    variants={fadeInUp}
+                    className="py-8 bg-[#E6E9F0] dark:bg-[#2C5364] text-center"
+                >
+                    <p className="text-sm text-[#2C5364]/80 dark:text-[#8EC5FC]/80">
+                        © {new Date().getFullYear()} Oumar SY. All Rights Reserved.
+                    </p>
+                </motion.footer>
+            </motion.div>
         </>
     );
 };

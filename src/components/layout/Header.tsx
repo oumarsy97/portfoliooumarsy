@@ -47,7 +47,7 @@ const Header = () => {
                 {/* Navigation Desktop */}
                 <NavigationMenu className="hidden md:block">
                     <NavigationMenuList className="flex space-x-6 justify-end">
-                        {["Home", "Projects", "Skills", "Contact"].map((item) => (
+                        {["Home","Experience", "Projects", "Skills", "Contact"].map((item) => (
                             <NavigationMenuItem key={item}>
                                 <NavigationMenuLink
                                     href={`#${item.toLowerCase()}`}
@@ -98,7 +98,7 @@ const Header = () => {
                             `}
                         >
                             <nav className="flex flex-col p-4 space-y-4">
-                                {["Home", "Projects", "Skills", "Contact"].map((item) => (
+                                {["Home","Experience", "Projects", "Skills", "Contact"].map((item) => (
                                     <a
                                         key={item}
                                         href={`#${item.toLowerCase()}`}
