@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "../components/layout/Header";
 import Hero from "../components/sections/Hero";
-import { AboutSection } from "@/components/sections/About";
 import SkillsSection from "../components/sections/Skills";
 import ExperienceSection from "@/components/sections/Experience";
 import ProjectsShowcase from "../components/sections/Projects";

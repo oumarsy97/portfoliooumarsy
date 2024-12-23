@@ -14,7 +14,7 @@ const fadeInUp = {
 
 const ExperienceSection = () => {
     const experiences = [
-        {
+        /*{
             title: "Web & Mobile Development Intern",
             company: "Groupe Sonatel",
             location: "Dakar, Senegal",
@@ -24,7 +24,7 @@ const ExperienceSection = () => {
                 "Collaboration with cross-functional teams on major projects",
                 "Implementation of modern development practices and technologies"
             ]
-        },
+        },*/
         {
             title: "Student Fullstack Developer",
             company: "Sonatel Academy",
