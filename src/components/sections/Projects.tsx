@@ -12,8 +12,8 @@ const projects = [
         title: "Personal Portfolio",
         description: "A modern and responsive personal portfolio built with React and TypeScript. Features include smooth navigation, dynamic content rendering, and a clean design leveraging ChadCN UI components for enhanced user experience.",
         technologies: ["React", "TypeScript", "ChadCN UI", "Frontend"],
-        githubLink: "https://github.com/oumarsy97/my-portfolio", // Remplacez par le lien réel de votre dépôt
-        deployLink: "https://myportfolio.onrender.com", // Remplacez par le lien de déploiement réel
+        backlink: "https://github.com/oumarsy97/portfoliooumarsy.git", // Remplacez par le lien réel de votre dépôt
+        deployLink: "https://oumarsydev.vercel.app/", // Remplacez par le lien de déploiement réel
         category: "Web",
         icon: <Layout className="w-10 h-10 text-[#6CA2BC] dark:text-[#8EC5FC]" />,
         date: "December 2024",
