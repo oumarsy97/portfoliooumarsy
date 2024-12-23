@@ -95,6 +95,17 @@ const SkillsSection = () => {
                 "https://www.logiquetechno.com/wp-content/uploads/2022/12/logo-python.png",
                 "https://download.logo.wine/logo/Dart_(programming_language)/Dart_(programming_language)-Logo.wine.png"
             ]
+        },{
+            title: "Web Development",
+            skills: ["HTML5", "CSS3", "JavaScript", "TypeScript", "TailwindCSS"],
+            icon: Code,
+            logoUrls: [
+                "https://cdn.worldvectorlogo.com/logos/html-1.svg",
+                "https://cdn.worldvectorlogo.com/logos/css-3.svg",
+                "https://cdn.worldvectorlogo.com/logos/javascript-1.svg",
+                "https://cdn.worldvectorlogo.com/logos/typescript.svg",
+                "https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg"
+            ]
         },
         {
             title: "Frontend Frameworks",
