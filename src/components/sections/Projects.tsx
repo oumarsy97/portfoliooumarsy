@@ -18,8 +18,8 @@ const projects = [
         icon: <Layout className="w-10 h-10 text-[#6CA2BC] dark:text-[#8EC5FC]" />,
         date: "December 2024",
         image: "/img_6.png"
-    }
-    ,{
+    },
+    {
         title: "Wave Senegal Redesign",
         description: "Complete redesign of the Wave Senegal mobile application using Flutter and Firebase. Improvement of user experience and addition of innovative features.",
         technologies: ["Flutter", "Firebase", "Mobile Development"],
@@ -87,20 +87,20 @@ const ProjectsShowcase = () => {
     return (
         <div className="container mx-auto max-w-6xl px-4">
             <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
+                initial={{opacity: 0, y: 20}}
+                whileInView={{opacity: 1, y: 0}}
+                transition={{duration: 0.5}}
+                viewport={{once: true}}
                 className="text-center mb-12"
             >
                 <h2 className="text-4xl font-bold text-[#2C5364] dark:text-[#8EC5FC] mb-4">
                     My Projects
                 </h2>
                 <motion.div
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    viewport={{ once: true }}
+                    initial={{scaleX: 0}}
+                    whileInView={{scaleX: 1}}
+                    transition={{duration: 0.5, delay: 0.2}}
+                    viewport={{once: true}}
                     className="w-24 h-1 bg-[#6CA2BC] dark:bg-[#8EC5FC] mx-auto rounded-full"
                 />
             </motion.div>
@@ -110,12 +110,12 @@ const ProjectsShowcase = () => {
                     <motion.button
                         key={category}
                         onClick={() => setActiveCategory(category)}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        whileHover={{scale: 1.05}}
+                        whileTap={{scale: 0.95}}
                         className={`px-6 py-2 rounded-full transition-all ${
                             activeCategory === category
                                 ? 'bg-[#6CA2BC] dark:bg-[#8EC5FC] text-white'
-                                : 'bg-[#E6E9F0]/50 dark:bg-[#2C5364]/30 text-[#2C5364] dark:text-[#8EC5FC]/80 hover:bg-[#6CA2BC]/20 dark:hover:bg-[#8EC5FC]/20'
+                                : 'bg-[#E6E9F0]/50 dark:bg-[#1E293B]/50 text-[#2C5364] dark:text-[#8EC5FC]/80 hover:bg-[#6CA2BC]/20 dark:hover:bg-[#8EC5FC]/20'
                         }`}
                     >
                         {category}
@@ -127,14 +127,14 @@ const ProjectsShowcase = () => {
                 {filteredProjects.map((project, index) => (
                     <motion.div
                         key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                        className="bg-[#E6E9F0]/50 dark:bg-[#2C5364]/30 backdrop-blur-sm
-                                 border border-[#6CA2BC]/20 dark:border-[#8EC5FC]/20
-                                 rounded-2xl shadow-lg overflow-hidden
-                                 hover:shadow-xl transition-all"
+                        initial={{opacity: 0, y: 20}}
+                        whileInView={{opacity: 1, y: 0}}
+                        transition={{duration: 0.5, delay: index * 0.1}}
+                        viewport={{once: true}}
+                        className="bg-[#E6E9F0]/50 dark:bg-[#1E293B]/50 backdrop-blur-sm
+                         border border-[#6CA2BC]/20 dark:border-[#8EC5FC]/20
+                         rounded-2xl shadow-lg overflow-hidden
+                         hover:shadow-xl transition-all"
                     >
                         <div className="h-48 overflow-hidden">
                             <img
@@ -166,10 +166,10 @@ const ProjectsShowcase = () => {
                                     <span
                                         key={techIndex}
                                         className="px-3 py-1 bg-[#6CA2BC]/10 dark:bg-[#8EC5FC]/10
-                                                 text-[#2C5364] dark:text-[#8EC5FC] rounded-full text-xs"
+                                         text-[#2C5364] dark:text-[#8EC5FC] rounded-full text-xs"
                                     >
-                                        {tech}
-                                    </span>
+                                {tech}
+                            </span>
                                 ))}
                             </div>
 
@@ -180,9 +180,9 @@ const ProjectsShowcase = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="text-[#2C5364]/60 dark:text-[#8EC5FC]/60
-                                                 hover:text-[#6CA2BC] dark:hover:text-[#8EC5FC]"
+                                         hover:text-[#6CA2BC] dark:hover:text-[#8EC5FC]"
                                     >
-                                        <ExternalLink className="w-6 h-6" />
+                                        <ExternalLink className="w-6 h-6"/>
                                     </a>
                                 )}
                                 {project.deployLink && (
@@ -191,9 +191,9 @@ const ProjectsShowcase = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="text-[#2C5364]/60 dark:text-[#8EC5FC]/60
-                                                 hover:text-[#6CA2BC] dark:hover:text-[#8EC5FC]"
+                                         hover:text-[#6CA2BC] dark:hover:text-[#8EC5FC]"
                                     >
-                                        <ExternalLink className="w-6 h-6" />
+                                        <ExternalLink className="w-6 h-6"/>
                                     </a>
                                 )}
                             </div>
@@ -202,6 +202,7 @@ const ProjectsShowcase = () => {
                 ))}
             </div>
         </div>
+
     );
 };
 

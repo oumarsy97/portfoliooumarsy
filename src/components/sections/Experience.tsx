@@ -14,22 +14,11 @@ const fadeInUp = {
 
 const ExperienceSection = () => {
     const experiences = [
-        /*{
-            title: "Web & Mobile Development Intern",
-            company: "Groupe Sonatel",
-            location: "Dakar, Senegal",
-            period: "January 2024 - Present",
-            description: [
-                "Development of innovative web and mobile applications",
-                "Collaboration with cross-functional teams on major projects",
-                "Implementation of modern development practices and technologies"
-            ]
-        },*/
         {
-            title: "Student Fullstack Developer",
+            title: "Full-stack development learner",
             company: "Sonatel Academy",
             location: "Dakar, Senegal",
-            period: "febreary 2024 - December 2024",
+            period: "February 2024 - December 2024",
             description: [
                 "Developed multiple full-stack applications using modern technologies",
                 "Led development teams as project team leader",
@@ -63,14 +52,14 @@ const ExperienceSection = () => {
 
     return (
         <motion.section
-            className="py-16 space-y-12 bg-[#E6E9F0]/50 dark:bg-[#2C5364]/50"
+            className="py-16 space-y-12 bg-[#F1F5F9]/50 dark:bg-[#1E293B]/50"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
         >
             <div className="container mx-auto px-4">
                 <motion.h2
-                    className="text-4xl font-bold text-[#2C5364] dark:text-[#8EC5FC] mb-12"
+                    className="text-4xl font-bold text-[#334155] dark:text-[#E2E8F0] mb-12"
                     variants={fadeInUp}
                 >
                     Professional Experience
@@ -92,23 +81,23 @@ const ExperienceSection = () => {
                                 }
                             }}
                         >
-                            <Card className="border border-[#6CA2BC]/20 dark:border-[#8EC5FC]/20
-                                         bg-[#E6E9F0] dark:bg-[#2C5364] p-6
+                            <Card className="border border-[#06B6D4]/20 dark:border-[#22D3EE]/20
+                                         bg-[#F1F5F9] dark:bg-[#1E293B] p-6
                                          backdrop-blur-sm
                                          hover:transform hover:translate-y-[-4px]
                                          transition-all duration-300
-                                         hover:shadow-lg hover:shadow-[#6CA2BC]/20
-                                         dark:hover:shadow-[#8EC5FC]/20">
+                                         hover:shadow-lg hover:shadow-[#06B6D4]/20
+                                         dark:hover:shadow-[#22D3EE]/20">
                                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                                     <div className="transform transition-transform duration-300 group-hover:translate-x-2">
-                                        <h3 className="text-xl font-bold text-[#2C5364] dark:text-[#8EC5FC] mb-2">
+                                        <h3 className="text-xl font-bold text-[#334155] dark:text-[#E2E8F0] mb-2">
                                             {experience.title}
                                         </h3>
-                                        <p className="text-[#6CA2BC] dark:text-[#8EC5FC]/80 font-semibold mb-2">
+                                        <p className="text-[#06B6D4] dark:text-[#22D3EE] font-semibold mb-2">
                                             {experience.company}
                                         </p>
                                     </div>
-                                    <div className="space-y-2 text-[#2C5364]/80 dark:text-[#8EC5FC]/60">
+                                    <div className="space-y-2 text-[#334155]/80 dark:text-[#E2E8F0]/60">
                                         <div className="flex items-center">
                                             <Calendar size={16} className="mr-2" />
                                             <span>{experience.period}</span>
@@ -120,7 +109,7 @@ const ExperienceSection = () => {
                                     </div>
                                 </div>
 
-                                <ul className="space-y-2 text-[#2C5364]/90 dark:text-[#8EC5FC]/90">
+                                <ul className="space-y-2 text-[#334155]/90 dark:text-[#E2E8F0]/90">
                                     {experience.description.map((item, idx) => (
                                         <motion.li
                                             key={idx}
@@ -129,7 +118,7 @@ const ExperienceSection = () => {
                                             transition={{ duration: 0.2 }}
                                         >
                                             <motion.div
-                                                className="w-2 h-2 bg-[#6CA2BC] dark:bg-[#8EC5FC]
+                                                className="w-2 h-2 bg-[#06B6D4] dark:bg-[#22D3EE]
                                                           rounded-full mr-3 mt-2"
                                                 whileHover={{ scale: 1.5 }}
                                                 transition={{ duration: 0.2 }}

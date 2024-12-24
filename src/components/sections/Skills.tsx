@@ -1,110 +1,94 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { Card } from '@/components/components/ui/card';
-import {
-    Code,
-    Database,
-    Server,
-    Smartphone,
-    GitBranch,
-    Layers
-} from 'lucide-react';
+import { Code, Layers, Database, Server, Smartphone, GitBranch } from 'lucide-react';
 
-const SkillCategory = ({ title, skills, icon: Icon, index, logoUrls, show }) => {
-    // Déterminer la direction de l'animation en fonction de l'index
-    const isFromLeft = index % 2 === 0;
-    const initialTransform = isFromLeft ? -100 : 100;
-
-    return (
-        <div className={`w-full transform transition-all duration-1000 
-                        ${show ? 'translate-x-0 opacity-100' : `translate-x-[${initialTransform}%] opacity-0`}`}>
-            <Card className="h-full bg-gradient-to-br from-[#E6E9F0]/50 to-[#6CA2BC]/30 dark:from-[#2C5364]/30 dark:to-[#203A43]/30
-                           border-[#6CA2BC]/20 dark:border-[#8EC5FC]/20
-                           overflow-hidden relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#6CA2BC]/10 to-[#8EC5FC]/10
-                              dark:from-[#2C5364]/20 dark:to-[#203A43]/20
-                              opacity-0 group-hover:opacity-100 transition-all duration-500" />
-
-                <div className="relative p-6 z-10">
-                    <div className="flex items-center mb-8">
-                        <div className="p-3 rounded-lg bg-[#6CA2BC]/10 dark:bg-[#8EC5FC]/10 mr-4
-                                    transform transition-all duration-300 group-hover:rotate-12">
-                            <Icon className="text-[#2C5364] dark:text-[#8EC5FC]" size={24} />
-                        </div>
-                        <h3 className="text-xl font-bold text-[#2C5364] dark:text-[#8EC5FC]">{title}</h3>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4">
-                        {skills.map((skill, idx) => (
-                            <div
-                                key={idx}
-                                className={`flex flex-col items-center p-3 rounded-lg 
-                                         ${title === "Databases" && skill === "SQL" ?
-                                    'bg-white/50 dark:bg-[#2C5364]/50 animate-pulse' :
-                                    'bg-white/50 dark:bg-[#2C5364]/50'}
-                                         transform transition-all duration-300 hover:scale-105`}
-                            >
-                                {logoUrls && logoUrls[idx] ? (
-                                    <div className="w-12 h-12 mb-2 relative overflow-hidden rounded-lg
-                                                  transform transition-all duration-300 group-hover:scale-110">
-                                        <img
-                                            src={logoUrls[idx]}
-                                            alt={`${skill} logo`}
-                                            className="w-full h-full object-contain p-2"
-                                        />
-                                    </div>
-                                ) : (
-                                    <div className="w-12 h-12 mb-2 flex items-center justify-center
-                                                  bg-[#6CA2BC]/10 dark:bg-[#8EC5FC]/10 rounded-lg">
-                                        <span className="text-2xl font-bold text-[#2C5364] dark:text-[#8EC5FC]">
-                                            {skill.charAt(0)}
-                                        </span>
-                                    </div>
-                                )}
-                                <span className="text-sm font-medium text-[#2C5364]/80 dark:text-[#8EC5FC]/80 text-center">
-                                    {skill}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </Card>
-        </div>
-    );
+const fadeInUp = {
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: "easeOut" }
 };
 
+const SkillCategory = ({ title, skills, icon: Icon, logoUrls }: any) => (
+    <motion.div
+        className="group relative"
+        initial="initial"
+        animate="animate"
+        variants={fadeInUp}
+    >
+        <Card
+            className="border border-[#06B6D4]/20 dark:border-[#22D3EE]/20
+                       bg-[#F1F5F9] dark:bg-[#1E293B] p-6
+                       backdrop-blur-sm
+                       hover:transform hover:translate-y-[-4px]
+                       transition-all duration-300
+                       hover:shadow-lg hover:shadow-[#06B6D4]/20
+                       dark:hover:shadow-[#22D3EE]/20"
+        >
+            <div className="flex items-center mb-6">
+                <div className="p-3 rounded-full bg-[#06B6D4] dark:bg-[#22D3EE] text-white mr-4
+                            group-hover:bg-[#06B6D4]/80 dark:group-hover:bg-[#22D3EE]/80
+                            transition-all duration-300">
+                    <Icon size={24}/>
+                </div>
+                <h3 className="text-xl font-bold text-[#334155] dark:text-[#E2E8F0]">{title}</h3>
+            </div>
+
+            <div className="space-y-4">
+                <div className="flex gap-6"> {/* No scrolling, just inline flex */}
+                    {skills.map((skill: string, idx: number) => (
+                        <div key={idx}
+                             className="flex flex-col items-center w-32"> {/* Fixed width for each skill */}
+                            {logoUrls[idx] ? (
+                                <div
+                                    className="w-16 h-16 mb-2 relative overflow-hidden rounded-lg bg-white dark:bg-[#1E293B] p-2">
+                                    <img
+                                        src={logoUrls[idx]}
+                                        alt={`${skill} logo`}
+                                        className="w-full h-full object-contain transform transition-all duration-300 group-hover:scale-110"
+                                    />
+                                </div>
+                            ) : (
+                                <div
+                                    className="w-16 h-16 mb-2 flex items-center justify-center rounded-lg bg-[#F1F5F9] dark:bg-[#334155]">
+                                    <span
+                                        className="text-3xl text-[#06B6D4] dark:text-[#22D3EE]">{skill.charAt(0)}</span>
+                                </div>
+                            )}
+                            <span
+                                className="text-[#334155] dark:text-[#E2E8F0] mt-2 text-center">{skill}</span> {/* Centered text under the logo */}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </Card>
+    </motion.div>
+);
+
 const SkillsSection = () => {
-    const [show, setShow] = useState(false);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setShow(true);
-        }, 5000); // Délai de 5 secondes
-
-        return () => clearTimeout(timer);
-    }, []);
-
     const skillCategories = [
         {
             title: "Programming Languages",
             skills: ["Java", "TypeScript", "PHP", "Python", "Dart"],
             icon: Code,
             logoUrls: [
-                "https://cdn.iconscout.com/icon/free/png-256/free-java-60-1174953.png?f=webp",
-                "https://media.graphassets.com/auto_image/compress/cache=expiry:max/resize=width:640/STChhjrScumkWbmwsni2",
-                "https://www.tisdigitech.com/wp-content/uploads/2024/06/PHP-bg.png",
-                "https://www.logiquetechno.com/wp-content/uploads/2022/12/logo-python.png",
-                "https://download.logo.wine/logo/Dart_(programming_language)/Dart_(programming_language)-Logo.wine.png"
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg"
             ]
-        },{
+        },
+        {
             title: "Web Development",
             skills: ["HTML5", "CSS3", "JavaScript", "TypeScript", "TailwindCSS"],
             icon: Code,
             logoUrls: [
-                "https://cdn.worldvectorlogo.com/logos/html-1.svg",
-                "https://cdn.worldvectorlogo.com/logos/css-3.svg",
-                "https://cdn.worldvectorlogo.com/logos/javascript-1.svg",
-                "https://cdn.worldvectorlogo.com/logos/typescript.svg",
-                "https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg"
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
             ]
         },
         {
@@ -112,28 +96,20 @@ const SkillsSection = () => {
             skills: ["React JS", "Angular"],
             icon: Layers,
             logoUrls: [
-                "https://logos-world.net/wp-content/uploads/2023/08/React-Symbol.png",
-                "https://www.mag-corp.com/wp-content/uploads/2021/08/angular.png"
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
             ]
         },
         {
             title: "Backend Frameworks",
-            skills: [
-                "Spring Boot",
-                "Laravel",
-                "Symfony",
-                "Node.js",
-                "NestJs",
-                "Django"
-            ],
+            skills: ["Spring Boot", "NestJs","Laravel", "ExpressJS",  "Django"],
             icon: Server,
             logoUrls: [
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2L_LUTlkNheoUGvjDaAILfnb9zn_2Rg9uFQ&s",
-                "https://w7.pngwing.com/pngs/399/620/png-transparent-laravel-hd-logo-thumbnail.png",
-                "https://kiboko.fr/wp-content/uploads/2021/06/symfony_black_01.png",
-                "https://d1uxiwmpc9j4yg.cloudfront.net/images/all/71302-express.js-chrome-javascript-system-node.js-v8-runtime_1687631713.png",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/NestJS-logo-wordmark.svg/1200px-NestJS-logo-wordmark.svg.png",
-                "https://e7.pngegg.com/pngimages/319/230/png-clipart-django-web-development-web-framework-python-web-application-asp-text-trademark.png"
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original-wordmark.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain-wordmark.svg"
             ]
         },
         {
@@ -141,8 +117,8 @@ const SkillsSection = () => {
             skills: ["Flutter", "React Native"],
             icon: Smartphone,
             logoUrls: [
-                "https://mobivery.com/wp-content/uploads/2022/01/flutter-logo.png",
-                "https://devtop.io/wp-content/uploads/2022/10/react-native-1.png"
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
             ]
         },
         {
@@ -150,65 +126,57 @@ const SkillsSection = () => {
             skills: ["Git/Github", "Gitlab", "Docker"],
             icon: GitBranch,
             logoUrls: [
-                "https://lthub.ubc.ca/files/2021/06/GitHub-Logo.png",
-                "https://miro.medium.com/v2/resize:fit:1400/1*YjOtv5OOEP744YTdzBxWsw.png",
-                "https://miro.medium.com/v2/resize:fit:1400/1*bZP17SmwRZihfAYDr5KBFg.png"
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
             ]
         },
         {
-            title: "SQL Databases",
-            skills: [
-                "PostgreSQL",
-                "MySQL",
-
-            ],
+            title: "Databases",
+            skills: ["PostgreSQL", "MySQL", "Firebase", "MongoDB", "Prisma"],
             icon: Database,
             logoUrls: [
-                "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg",
-                "https://www.mysql.com/common/logos/logo-mysql-170x115.png",
-            ]
-        },
-        {
-            title: "NoSQL Databases",
-            skills: [
-                "MongoDB",
-                "Firebase",
-
-            ],
-            icon: Database,
-            logoUrls: [
-                "https://www.mongodb.com/assets/images/global/leaf.png",
-                "https://firebase.google.com/downloads/brand-guidelines/PNG/logo-logomark.png",
-
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg" // Prisma logo
             ]
         }
+
     ];
 
     return (
-        <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold text-[#2C5364] dark:text-[#8EC5FC] mb-4
-                             transform transition-all duration-500 hover:scale-105">
+        <motion.section
+            className="py-16 space-y-12 bg-[#F1F5F9]/50 dark:bg-[#1E293B]/50"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+        >
+            <div className="container mx-auto px-4 ">
+                <motion.h2
+                    className="text-4xl font-bold text-[#334155] dark:text-[#E2E8F0] mb-6"
+                    variants={fadeInUp}
+                >
                     My Technical Skills
-                </h2>
-                <div className="w-24 h-1 bg-[#6CA2BC] dark:bg-[#8EC5FC] mx-auto rounded-full
-                              transform transition-all duration-500 hover:w-32" />
-            </div>
+                </motion.h2>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {skillCategories.map((category, index) => (
-                    <SkillCategory
-                        key={index}
-                        index={index}
-                        title={category.title}
-                        skills={category.skills}
-                        logoUrls={category.logoUrls}
-                        icon={category.icon}
-                        show={show}
-                    />
-                ))}
+
+                <div className="overflow-x-auto"> {/* Horizontal scroll for categories */}
+                    <div className="flex gap-6 mb-6"> {/* Categories in a row */}
+                        {skillCategories.map((category, index) => (
+                            <SkillCategory
+                                key={index}
+                                title={category.title}
+                                skills={category.skills}
+                                icon={category.icon}
+                                logoUrls={category.logoUrls}
+                            />
+                        ))}
+                    </div>
+                </div>
             </div>
-        </div>
+        </motion.section>
     );
 };
 

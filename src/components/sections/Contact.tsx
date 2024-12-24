@@ -62,6 +62,13 @@ const ContactSection = () => {
                 />
             </motion.div>
 
+            {/* Freelance Availability Message */}
+            <div className="text-center mb-12">
+                <p className="text-lg font-medium text-[#2C5364] dark:text-[#8EC5FC]">
+                    I am available for freelance projects. Please feel free to contact me for your projects!
+                </p>
+            </div>
+
             <div className="flex justify-center gap-8 flex-wrap">
                 {contacts.map((contact, index) => (
                     <motion.a
@@ -74,7 +81,7 @@ const ContactSection = () => {
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         viewport={{ once: true }}
                         whileHover={{ scale: 1.05 }}
-                        className="flex items-center gap-3 px-6 py-3 rounded-lg
+                        className="flex flex-col items-center gap-3 px-6 py-3 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 rounded-lg
                                  bg-[#E6E9F0]/50 dark:bg-[#2C5364]/30
                                  backdrop-blur-sm
                                  shadow-lg hover:shadow-xl
@@ -91,7 +98,7 @@ const ContactSection = () => {
                                           rounded-full filter blur-xl opacity-0 group-hover:opacity-100
                                           transition-opacity duration-300" />
                         </motion.div>
-                        <span className="font-medium text-[#2C5364] dark:text-[#8EC5FC]">
+                        <span className="font-medium text-[#2C5364] dark:text-[#8EC5FC] mt-2">
                             {contact.name}
                         </span>
                     </motion.a>
