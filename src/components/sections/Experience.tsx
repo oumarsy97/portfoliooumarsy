@@ -15,6 +15,17 @@ const fadeInUp = {
 const ExperienceSection = () => {
     const experiences = [
         {
+            title: "Full-stack development Intern",
+            company: "Group Sonatel",
+            location: "Dakar, Senegal",
+            period: "January 2025 -  now",
+            description: [
+                "Developed multiple full-stack applications using modern technologies",
+                "Java Spring Boot Angular Docker",
+                "Implemented secure authentication and authorization systems",
+                "Deployed applications using Docker and cloud platforms"
+            ]
+        },{
             title: "Full-stack development learner",
             company: "Sonatel Academy",
             location: "Dakar, Senegal",
