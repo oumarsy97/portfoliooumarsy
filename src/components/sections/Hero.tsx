@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
         },
         {
             Icon: TwitterIcon,
-            href: "https://twitter.com/oumarsy",
+            href: "https://twitter.com/oumarsy97",
         },
         {
             Icon: MessageCircle,
