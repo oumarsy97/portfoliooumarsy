@@ -7,7 +7,12 @@ import {
     LinkedinIcon,
     TwitterIcon,
     DownloadIcon,
-    MessageCircle
+    MessageCircle,
+    MailIcon,
+    PhoneIcon,
+    Star,
+    Globe,
+    Pencil,
 } from 'lucide-react';
 import { Button } from "@/components/components/ui/button";
 import { Card } from "@/components/components/ui/card";
