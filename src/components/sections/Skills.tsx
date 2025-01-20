@@ -102,14 +102,16 @@ const SkillsSection = () => {
         },
         {
             title: "Backend Frameworks",
-            skills: ["Spring Boot", "NestJs","Laravel", "ExpressJS",  "Django"],
+            skills: ["Spring Boot", "NestJs","Laravel", "ExpressJS",  "Django","Symfony"],
             icon: Server,
             logoUrls: [
                 "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
                 "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg",
                 "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
                 "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original-wordmark.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain-wordmark.svg"
+                "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain-wordmark.svg",
+               "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/symfony/symfony-original.svg"
+
             ]
         },
         {
