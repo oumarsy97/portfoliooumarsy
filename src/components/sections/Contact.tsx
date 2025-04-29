@@ -30,7 +30,7 @@ const ContactSection = () => {
         {
             icon: LinkedInIcon,
             name: "LinkedIn",
-            link: "https://www.linkedin.com/in/oumar-sy-061797233/",
+            link: "https://www.linkedin.com/in/oumarsy97/",
             color: "text-[#6CA2BC] dark:text-[#8EC5FC]"
         },
         {
