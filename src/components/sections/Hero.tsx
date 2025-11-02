@@ -107,7 +107,7 @@ const Hero: React.FC = () => {
                                     sequence={[
                                         'Création Web Innovante',
                                         1000,
-                                        'Expert React & TypeScript',
+                                        'Applications React & TypeScript',
                                         1000,
                                         'Solutions Digitales Élégantes',
                                         1000
