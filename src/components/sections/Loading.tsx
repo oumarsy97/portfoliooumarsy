@@ -117,7 +117,7 @@ export const LoadingScreen = () => {
                     />
                     <div className="relative z-10 w-32 h-32 bg-[#FFF7ED] rounded-full overflow-hidden border-4 border-[#F97316]/30">
                         <img
-                            src="/profil.png"
+                            src="/image.png"
                             alt="Oumar Sy"
                             className="w-full h-full object-cover object-center"
                         />

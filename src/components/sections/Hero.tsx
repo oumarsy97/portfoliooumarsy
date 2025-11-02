@@ -188,7 +188,7 @@ const Hero: React.FC = () => {
                                 <div
                                     className="relative z-10 w-64 h-64 lg:w-96 lg:h-96 bg-[#FFF7ED] dark:bg-[#0F172A] rounded-full overflow-hidden border-4 border-[#F97316]/20 dark:border-[#06B6D4]/20">
                                     <img
-                                        src="/profil.png"
+                                        src="/image.png"
                                         alt="Oumar Sy"
                                         className=" object-cover object-center"
                                     />
