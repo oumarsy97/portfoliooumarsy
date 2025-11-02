@@ -43,7 +43,7 @@ const Home: React.FC = () => {
                 <motion.div
                     initial="initial"
                     animate="animate"
-                    className="bg-gradient-to-br from-[#F0F9FF] to-[#DBEAFE] dark:from-[#2C5364] dark:to-[#2C5364] text-[#1E293B] dark:text-[#E5E7EB]"
+                    className="bg-gradient-to-br from-[#FFF7ED] to-[#FFEFD5] dark:from-[#0A192F] dark:to-[#0F172A] text-[#0A192F] dark:text-[#E2E8F0]"
                 >
                     <Header />
 
@@ -52,7 +52,7 @@ const Home: React.FC = () => {
                         className="px-4 sm:px-8 py-12 mx-auto max-w-screen-xl"
                     >
                         <motion.section
-                            id="home"
+                            id="accueil"
                             variants={fadeInUp}
                             className="flex flex-col items-center justify-center py-16 md:py-24 text-center space-y-8"
                         >
@@ -60,34 +60,33 @@ const Home: React.FC = () => {
                         </motion.section>
 
                         <motion.section
-                            id="experience"
+                            id="expérience"
                             variants={fadeInUp}
-                            className="space-y-12 py-16 md:py-24 bg-[#EFF6FF]/50 dark:bg-[#2C5364]/50"
+                            className="space-y-12 py-16 md:py-24 bg-[#FFF7ED]/50 dark:bg-[#0A192F]/50 rounded-3xl"
                         >
                             <ExperienceSection/>
                         </motion.section>
+                        
                         <motion.section
-                            id="projects"
+                            id="projets"
                             variants={fadeInUp}
-                            className="space-y-12 py-16 md:py-24 bg-[#EFF6FF]/50 dark:bg-[#2C5364]/50"
+                            className="space-y-12 py-16 md:py-24 bg-gradient-to-br from-[#FFF7ED]/30 to-[#FFEFD5]/30 dark:from-[#0F172A]/30 dark:to-[#0A192F]/30 rounded-3xl"
                         >
                             <ProjectsShowcase/>
                         </motion.section>
 
-
                         <motion.section
-                            id="skills"
+                            id="compétences"
                             variants={fadeInUp}
                             className="space-y-12 py-16 md:py-24"
                         >
                             <SkillsSection/>
                         </motion.section>
 
-
                         <motion.section
                             id="contact"
                             variants={fadeInUp}
-                            className="space-y-12 py-16 md:py-24"
+                            className="space-y-12 py-16 md:py-24 bg-gradient-to-br from-[#F97316]/5 to-[#8B5CF6]/5 dark:from-[#F97316]/10 dark:to-[#8B5CF6]/10 rounded-3xl"
                         >
                             <ContactSection/>
                         </motion.section>
@@ -95,10 +94,10 @@ const Home: React.FC = () => {
 
                     <motion.footer
                         variants={fadeInUp}
-                        className="py-8 bg-[#F0F9FF] dark:bg-[#2C5364] text-center"
+                        className="py-8 bg-gradient-to-r from-[#FFF7ED] via-[#FFEFD5] to-[#FFF7ED] dark:from-[#0A192F] dark:via-[#0F172A] dark:to-[#0A192F] text-center border-t border-[#F97316]/20 dark:border-[#06B6D4]/20"
                     >
-                        <p className="text-sm text-[#1E293B]/80 dark:text-[#E5E7EB]/80">
-                            © {new Date().getFullYear()} Oumar SY. All Rights Reserved.
+                        <p className="text-sm text-[#0A192F]/70 dark:text-[#E2E8F0]/70">
+                            © {new Date().getFullYear()} Oumar SY. Tous droits réservés.
                         </p>
                     </motion.footer>
                 </motion.div>

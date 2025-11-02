@@ -32,7 +32,7 @@ const Header = () => {
     return (
         <header
             className={`
-                ${theme === "dark" ? "bg-[#2C3E50] text-[#CBD5E1]" : "bg-[#CBD5E1] text-[#2C3E50]"} 
+                ${theme === "dark" ? "bg-[#0F172A] text-[#E2E8F0]" : "bg-[#FFF7ED] text-[#0A192F]"} 
                 fixed w-full top-0 z-50 shadow-md transition-colors duration-300
             `}
         >
@@ -40,18 +40,18 @@ const Header = () => {
                 {/* Logo */}
                 <div className="text-2xl font-bold">
                     <a href="/" className="flex items-center">
-                        <span className="mr-2">Oumar SY</span>
+                        <span className="mr-2 bg-gradient-to-r from-[#F97316] to-[#8B5CF6] bg-clip-text text-transparent">Oumar SY</span>
                     </a>
                 </div>
 
                 {/* Navigation Desktop */}
                 <NavigationMenu className="hidden md:block">
                     <NavigationMenuList className="flex space-x-6 justify-end">
-                        {["Home","Experience", "Projects", "Skills", "Contact"].map((item) => (
+                        {["Accueil","Expérience", "Projets", "Compétences", "Contact"].map((item) => (
                             <NavigationMenuItem key={item}>
                                 <NavigationMenuLink
                                     href={`#${item.toLowerCase()}`}
-                                    className="hover:text-[#8C6A52] transition-colors"
+                                    className="hover:text-[#F97316] dark:hover:text-[#F97316] transition-colors"
                                     onClick={(e) => {
                                         e.preventDefault(); // Empêche le comportement par défaut du lien
                                         scrollToSection(item.toLowerCase());
@@ -71,17 +71,17 @@ const Header = () => {
                         variant="outline"
                         size="icon"
                         onClick={toggleTheme}
-                        className="rounded-full"
+                        className="rounded-full border-[#F97316] hover:bg-[#F97316]/10"
                         aria-label="Changer de thème"
                     >
-                        {theme === "light" ? <Sun /> : <Moon />}
+                        {theme === "light" ? <Sun className="text-[#F97316]" /> : <Moon className="text-[#06B6D4]" />}
                     </Button>
 
                     {/* Bouton de menu mobile */}
                     <Button
                         variant="outline"
                         size="icon"
-                        className="md:hidden rounded-full"
+                        className="md:hidden rounded-full border-[#F97316] hover:bg-[#F97316]/10"
                         onClick={toggleMobileMenu}
                         aria-label="Ouvrir le menu"
                     >
@@ -93,16 +93,16 @@ const Header = () => {
                         <div
                             className={`
                                 absolute top-full right-0 w-64 mt-2
-                                ${theme === "dark" ? "bg-[#2C3E50] text-[#CBD5E1]" : "bg-[#CBD5E1] text-[#2C3E50]"} 
-                                shadow-md rounded-lg transition-all duration-300 z-50
+                                ${theme === "dark" ? "bg-[#0F172A] text-[#E2E8F0]" : "bg-[#FFF7ED] text-[#0A192F]"} 
+                                shadow-md rounded-lg transition-all duration-300 z-50 border border-[#F97316]/20
                             `}
                         >
                             <nav className="flex flex-col p-4 space-y-4">
-                                {["Home","Experience", "Projects", "Skills", "Contact"].map((item) => (
+                                {["Accueil","Expérience", "Projets", "Compétences", "Contact"].map((item) => (
                                     <a
                                         key={item}
                                         href={`#${item.toLowerCase()}`}
-                                        className="hover:text-[#8C6A52] transition-colors block"
+                                        className="hover:text-[#F97316] dark:hover:text-[#F97316] transition-colors block"
                                         onClick={(e) => {
                                             e.preventDefault(); // Empêche le comportement par défaut du lien
                                             scrollToSection(item.toLowerCase());

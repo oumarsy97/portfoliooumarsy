@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
-import { useTheme } from 'next-themes';
 import {
     GithubIcon,
     LinkedinIcon,
@@ -15,7 +14,6 @@ import { Badge } from "@/components/components/ui/badge";
 
 const Hero: React.FC = () => {
     const [isHovered, setIsHovered] = useState(false);
-    const { theme } = useTheme();
 
     const socialLinks = [
         {
@@ -24,7 +22,7 @@ const Hero: React.FC = () => {
         },
         {
             Icon: LinkedinIcon,
-            href: "https://www.linkedin.com/in/oumar-sy-061797233/",
+            href: "https://www.linkedin.com/in/oumarsy97/",
         },
         {
             Icon: TwitterIcon,
@@ -61,7 +59,7 @@ const Hero: React.FC = () => {
 
     return (
         <div
-            className="relative min-h-screen bg-gradient-to-br from-[#F8FAFC] to-[#F1F5F9] dark:from-[#2C5364] dark:to-[#2C5364] flex items-center justify-center overflow-hidden"
+            className="relative min-h-screen bg-gradient-to-br from-[#FFF7ED] to-[#FFEFD5] dark:from-[#0A192F] dark:to-[#0F172A] flex items-center justify-center overflow-hidden"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
@@ -69,15 +67,15 @@ const Hero: React.FC = () => {
                 className="absolute inset-0 z-0 opacity-50"
                 animate={{
                     background: isHovered
-                        ? 'linear-gradient(to bottom right, rgba(6, 182, 212, 0.2), rgba(14, 165, 233, 0.2), rgba(16, 185, 129, 0.2))'
-                        : 'linear-gradient(to bottom right, rgba(6, 182, 212, 0.1), rgba(14, 165, 233, 0.1), rgba(16, 185, 129, 0.1))'
+                        ? 'linear-gradient(to bottom right, rgba(249, 115, 22, 0.2), rgba(6, 182, 212, 0.2), rgba(139, 92, 246, 0.2))'
+                        : 'linear-gradient(to bottom right, rgba(249, 115, 22, 0.1), rgba(6, 182, 212, 0.1), rgba(139, 92, 246, 0.1))'
                 }}
                 transition={{duration: 2, repeat: Infinity, repeatType: "reverse"}}
             />
 
             <div className="container mx-auto px-4 relative z-10">
                 <Card
-                    className="bg-white/90 dark:bg-[#1E293B]/90 backdrop-blur-xl border-2 border-[#06B6D4]/20 dark:border-[#22D3EE]/20 shadow-2xl rounded-2xl">
+                    className="bg-white/90 dark:bg-[#0F172A]/90 backdrop-blur-xl border-2 border-[#F97316]/20 dark:border-[#06B6D4]/20 shadow-2xl rounded-2xl">
                     <div className="grid md:grid-cols-2 gap-12 p-8 lg:p-16 items-center">
                         <motion.div
                             variants={containerVariants}
@@ -87,7 +85,7 @@ const Hero: React.FC = () => {
                         >
                             <motion.h1
                                 variants={itemVariants}
-                                className="text-4xl lg:text-6xl font-bold text-[#334155] dark:text-[#E2E8F0] tracking-tight"
+                                className="text-4xl lg:text-6xl font-bold text-[#0A192F] dark:text-[#E2E8F0] tracking-tight"
                             >
                                 Oumar Sy
                             </motion.h1>
@@ -95,23 +93,23 @@ const Hero: React.FC = () => {
                             <motion.div variants={itemVariants}>
                                 <Badge
                                     variant="outline"
-                                    className="mb-4 bg-[#06B6D4]/10 dark:bg-[#22D3EE]/10 text-[#334155] dark:text-[#E2E8F0] border-[#06B6D4]/30 dark:border-[#22D3EE]/30"
+                                    className="mb-4 bg-gradient-to-r from-[#F97316]/10 to-[#8B5CF6]/10 text-[#0A192F] dark:text-[#E2E8F0] border-[#F97316]/30 dark:border-[#06B6D4]/30"
                                 >
-                                    Full Stack Developer
+                                    Développeur Full Stack
                                 </Badge>
                             </motion.div>
 
                             <motion.div
                                 variants={itemVariants}
-                                className="text-2xl lg:text-4xl font-semibold text-[#0EA5E9] dark:text-[#38BDF8]"
+                                className="text-2xl lg:text-4xl font-semibold bg-gradient-to-r from-[#F97316] via-[#06B6D4] to-[#8B5CF6] bg-clip-text text-transparent"
                             >
                                 <TypeAnimation
                                     sequence={[
-                                        'Innovative Web Creation',
+                                        'Création Web Innovante',
                                         1000,
-                                        'React & TypeScript Expert',
+                                        'Expert React & TypeScript',
                                         1000,
-                                        'Elegant Digital Solutions',
+                                        'Solutions Digitales Élégantes',
                                         1000
                                     ]}
                                     wrapper="span"
@@ -122,9 +120,9 @@ const Hero: React.FC = () => {
 
                             <motion.p
                                 variants={itemVariants}
-                                className="text-[#64748B] dark:text-[#94A3B8] leading-relaxed"
+                                className="text-[#0A192F]/70 dark:text-[#E2E8F0]/70 leading-relaxed"
                             >
-                                Full-stack developer passionate about tech innovation, specializing in web and mobile technologies. Creative, self-driven, and results-oriented, I build high-performance and scalable solutions. With strong listening skills and a team-focused mindset, I ensure clear communication to achieve shared goals.
+                                Développeur full-stack passionné par l'innovation technologique, spécialisé dans les technologies web et mobile. Créatif, autonome et orienté résultats, je construis des solutions performantes et évolutives. Avec une forte capacité d'écoute et un esprit d'équipe, j'assure une communication claire pour atteindre les objectifs communs.
                             </motion.p>
 
                             <motion.div
@@ -133,11 +131,11 @@ const Hero: React.FC = () => {
                             >
                                 <Button
                                     variant="outline"
-                                    className="w-full md:w-auto border-[#06B6D4] dark:border-[#22D3EE] text-[#334155] dark:text-[#E2E8F0] hover:bg-[#06B6D4]/10 dark:hover:bg-[#22D3EE]/10"
+                                    className="w-full md:w-auto bg-gradient-to-r from-[#F97316] to-[#8B5CF6] text-white border-none hover:opacity-90 transition-opacity"
                                     onClick={() => window.open('https://cvdesignr.com/p/670e5f7cbe58a', '_blank')}
                                 >
                                     <DownloadIcon className="mr-2" size={18}/>
-                                    View CV
+                                    Voir CV
                                 </Button>
                             </motion.div>
 
@@ -153,7 +151,7 @@ const Hero: React.FC = () => {
                                         rel="noopener noreferrer"
                                         whileHover={{scale: 1.2}}
                                         whileTap={{scale: 0.9}}
-                                        className="text-[#0EA5E9] dark:text-[#38BDF8] hover:text-[#10B981] dark:hover:text-[#34D399] transition-colors"
+                                        className="text-[#F97316] dark:text-[#06B6D4] hover:text-[#8B5CF6] dark:hover:text-[#8B5CF6] transition-colors"
                                     >
                                         <link.Icon size={24}/>
                                     </motion.a>
@@ -176,7 +174,7 @@ const Hero: React.FC = () => {
                         >
                             <div className="relative">
                                 <motion.div
-                                    className="absolute -inset-2 bg-gradient-to-r from-[#06B6D4] via-[#0EA5E9] to-[#10B981] dark:from-[#22D3EE] dark:via-[#38BDF8] dark:to-[#34D399] rounded-full opacity-30 blur-xl"
+                                    className="absolute -inset-2 bg-gradient-to-r from-[#F97316] via-[#06B6D4] to-[#8B5CF6] rounded-full opacity-30 blur-xl"
                                     animate={{
                                         scale: isHovered ? [1, 1.2, 0.8, 1] : 1,
                                         opacity: isHovered ? [0.3, 0.5, 0.2, 0.3] : 0.3
@@ -188,9 +186,9 @@ const Hero: React.FC = () => {
                                     }}
                                 />
                                 <div
-                                    className="relative z-10 w-64 h-64 lg:w-96 lg:h-96 bg-[#F1F5F9] dark:bg-[#1E293B] rounded-full overflow-hidden border-4 border-[#06B6D4]/20 dark:border-[#22D3EE]/20">
+                                    className="relative z-10 w-64 h-64 lg:w-96 lg:h-96 bg-[#FFF7ED] dark:bg-[#0F172A] rounded-full overflow-hidden border-4 border-[#F97316]/20 dark:border-[#06B6D4]/20">
                                     <img
-                                        src="/image.png"
+                                        src="/profil.png"
                                         alt="Oumar Sy"
                                         className=" object-cover object-center"
                                     />

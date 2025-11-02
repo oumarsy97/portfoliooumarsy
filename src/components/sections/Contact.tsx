@@ -24,25 +24,25 @@ const ContactSection = () => {
         {
             icon: WhatsAppIcon,
             name: "WhatsApp",
-            link: "https://api.whatsapp.com/send/?phone=+221781807229&text=Hello+Oumar+How+are+you",
-            color: "text-[#6CA2BC] dark:text-[#8EC5FC]"
+            link: "https://api.whatsapp.com/send/?phone=+221781807229&text=Hello+Oumar+Comment+allez+vous",
+            color: "text-[#F97316] dark:text-[#06B6D4]"
         },
         {
             icon: LinkedInIcon,
             name: "LinkedIn",
             link: "https://www.linkedin.com/in/oumarsy97/",
-            color: "text-[#6CA2BC] dark:text-[#8EC5FC]"
+            color: "text-[#F97316] dark:text-[#06B6D4]"
         },
         {
             icon: EmailIcon,
             name: "Email",
             link: "mailto:syoumar505@gmail.com",
-            color: "text-[#6CA2BC] dark:text-[#8EC5FC]"
+            color: "text-[#F97316] dark:text-[#06B6D4]"
         }
     ];
 
     return (
-        <div className="container mx-auto max-w-4xl px-4">
+        <div className="container mx-auto max-w-4xl px-4 py-16 bg-gradient-to-br from-[#FFF7ED] to-[#FFEFD5] dark:from-[#0A192F] dark:to-[#0F172A]">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -50,22 +50,22 @@ const ContactSection = () => {
                 viewport={{ once: true }}
                 className="text-center mb-16"
             >
-                <h2 className="text-4xl font-bold text-[#2C5364] dark:text-[#8EC5FC] mb-4">
-                    Let's Connect
+                <h2 className="text-4xl font-bold bg-gradient-to-r from-[#F97316] via-[#06B6D4] to-[#8B5CF6] bg-clip-text text-transparent mb-4">
+                    Restons Connectés
                 </h2>
                 <motion.div
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                     viewport={{ once: true }}
-                    className="w-24 h-1 bg-[#6CA2BC] dark:bg-[#8EC5FC] mx-auto rounded-full"
+                    className="w-24 h-1 bg-gradient-to-r from-[#F97316] to-[#8B5CF6] mx-auto rounded-full"
                 />
             </motion.div>
 
             {/* Freelance Availability Message */}
             <div className="text-center mb-12">
-                <p className="text-lg font-medium text-[#2C5364] dark:text-[#8EC5FC]">
-                    I am available for freelance projects. Please feel free to contact me for your projects!
+                <p className="text-lg font-medium text-[#0A192F] dark:text-[#E2E8F0]">
+                    Je suis disponible pour vos projets. N'hésitez pas à me contacter pour vos projets !
                 </p>
             </div>
 
@@ -82,23 +82,25 @@ const ContactSection = () => {
                         viewport={{ once: true }}
                         whileHover={{ scale: 1.05 }}
                         className="flex flex-col items-center gap-3 px-6 py-3 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 rounded-lg
-                                 bg-[#E6E9F0]/50 dark:bg-[#2C5364]/30
+                                 bg-white/80 dark:bg-[#0F172A]/80
                                  backdrop-blur-sm
-                                 shadow-lg hover:shadow-xl
+                                 shadow-lg hover:shadow-xl hover:shadow-[#F97316]/20 dark:hover:shadow-[#06B6D4]/20
                                  transition-all duration-200
-                                 border border-[#6CA2BC]/20 dark:border-[#8EC5FC]/20"
+                                 border border-[#F97316]/20 dark:border-[#06B6D4]/20"
                     >
                         <motion.div
                             whileHover={{ rotate: 10 }}
                             transition={{ type: "spring", stiffness: 400 }}
                             className="relative"
                         >
-                            <contact.icon />
-                            <div className="absolute inset-0 bg-[#6CA2BC]/10 dark:bg-[#8EC5FC]/10
+                            <div className={contact.color}>
+                                <contact.icon />
+                            </div>
+                            <div className="absolute inset-0 bg-[#F97316]/10 dark:bg-[#06B6D4]/10
                                           rounded-full filter blur-xl opacity-0 group-hover:opacity-100
                                           transition-opacity duration-300" />
                         </motion.div>
-                        <span className="font-medium text-[#2C5364] dark:text-[#8EC5FC] mt-2">
+                        <span className="font-medium text-[#0A192F] dark:text-[#E2E8F0] mt-2">
                             {contact.name}
                         </span>
                     </motion.a>
