@@ -22,7 +22,7 @@ const ExperienceSection = () => {
             description: [
                 "Développement et maintenance d'applications web pour Khassida et Coran",
                 "Technologies utilisées : React, Flutter, NestJS, PostgreSQL",
-                "Mise en œuvre de designs responsifs et garantie de compatibilité multi-plateforme",
+                "Mise en œuvre de designs responsives et garantie de compatibilité multi-plateforme",
                 "Collaboration avec une équipe de développeurs pour livrer des logiciels de haute qualité"
             ]
         },
