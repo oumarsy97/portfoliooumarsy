@@ -95,7 +95,7 @@ const Hero: React.FC = () => {
                                     variant="outline"
                                     className="mb-4 bg-gradient-to-r from-[#F97316]/10 to-[#8B5CF6]/10 text-[#0A192F] dark:text-[#E2E8F0] border-[#F97316]/30 dark:border-[#06B6D4]/30"
                                 >
-                                    Développeur Full Stack
+                                    Développeur Full Stack certifé à l'Orange Digital Center
                                 </Badge>
                             </motion.div>
 

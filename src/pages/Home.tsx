@@ -92,14 +92,7 @@ const Home: React.FC = () => {
                         </motion.section>
                     </motion.main>
 
-                    <motion.footer
-                        variants={fadeInUp}
-                        className="py-8 bg-gradient-to-r from-[#FFF7ED] via-[#FFEFD5] to-[#FFF7ED] dark:from-[#0A192F] dark:via-[#0F172A] dark:to-[#0A192F] text-center border-t border-[#F97316]/20 dark:border-[#06B6D4]/20"
-                    >
-                        <p className="text-sm text-[#0A192F]/70 dark:text-[#E2E8F0]/70">
-                            © {new Date().getFullYear()} Oumar SY. Tous droits réservés.
-                        </p>
-                    </motion.footer>
+                    
                 </motion.div>
             )}
         </>

@@ -3,6 +3,7 @@ import AppRoutes from './routes';
 import Header from "@/components/layout/Header";
 import {AnimatePresence} from "framer-motion";
 import {LoadingScreen} from "@/components/sections/Loading";
+import Footer from './components/layout/Footer';
 
 
 const App: React.FC = () => {
@@ -25,6 +26,7 @@ const App: React.FC = () => {
             <main className="pt-16 animate-fade-in">
                 <AppRoutes />
             </main>
+            <Footer />
         </div>
     );
 };
