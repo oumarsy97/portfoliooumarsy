@@ -73,7 +73,7 @@ const projects = [
         image: "/img11.png"
     },
     {
-        title: "Refonte Wave Sénégal",
+        title: "Application Mobile Transfert d'argent inspirée de Wave Sénégal",
         description: "Refonte complète de l'application mobile Wave Sénégal utilisant Flutter et Firebase. Amélioration de l'expérience utilisateur et ajout de fonctionnalités innovantes.",
         fullDescription: "Refonte complète de l'application Wave Sénégal avec amélioration de l'interface utilisateur et ajout de nouvelles fonctionnalités. Utilisation de Flutter pour le développement cross-platform et Firebase pour le backend et l'authentification.",
         technologies: ["Flutter", "Firebase", "Dart"],
