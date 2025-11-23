@@ -27,7 +27,6 @@ const projects = [
             "Base de données PostgreSQL optimisée"
         ],
         backlink: "https://github.com/oumarsy97/mobilemcn.git",
-        deployLink: "https://mcn-sable.vercel.app/",
         category: "FullStack",
         icon: <Globe className="w-10 h-10 text-[#F97316] dark:text-[#06B6D4]" />,
         date: "Octobre 2025",
