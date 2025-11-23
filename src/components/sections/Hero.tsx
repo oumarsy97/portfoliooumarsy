@@ -107,9 +107,13 @@ const Hero: React.FC = () => {
                                     sequence={[
                                         'Création Web Innovante',
                                         1000,
-                                        'Applications React & TypeScript',
+                                        'Applications évolutives',
                                         1000,
-                                        'Solutions Digitales Élégantes',
+                                        'Solutions Digitales',
+                                        1000,
+                                        'Gestion de Projets Agile',
+                                        1000,
+                                        'Collaboration en Équipe',
                                         1000
                                     ]}
                                     wrapper="span"

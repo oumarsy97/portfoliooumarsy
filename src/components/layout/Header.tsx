@@ -27,7 +27,19 @@ const Header = () => {
         if (element) {
             element.scrollIntoView({ behavior: "smooth" });
         }
+        setIsMenuOpen(false);
     };
+
+    const menuItems = [
+        { label: "Accueil", id: "accueil" },
+        { label: "Expérience", id: "expérience" },
+        { label: "Projets", id: "projets" },
+        { label: "Compétences", id: "compétences" },
+        { label: "Formations", id: "formations" },
+        { label: "Services", id: "services" },
+        { label: "Disponibilité", id: "disponibilité" },
+        { label: "Contact", id: "contact" }
+    ];
 
     return (
         <header
@@ -39,25 +51,28 @@ const Header = () => {
             <div className="container mx-auto px-4 py-4 flex items-center justify-between">
                 {/* Logo */}
                 <div className="text-2xl font-bold">
-                    <a href="/" className="flex items-center">
+                    <a href="/" className="flex items-center" onClick={(e) => {
+                        e.preventDefault();
+                        scrollToSection("accueil");
+                    }}>
                         <span className="mr-2 bg-gradient-to-r from-[#F97316] to-[#8B5CF6] bg-clip-text text-transparent">Oumar SY</span>
                     </a>
                 </div>
 
                 {/* Navigation Desktop */}
-                <NavigationMenu className="hidden md:block">
-                    <NavigationMenuList className="flex space-x-6 justify-end">
-                        {["Accueil","Expérience", "Projets", "Compétences", "Contact"].map((item) => (
-                            <NavigationMenuItem key={item}>
+                <NavigationMenu className="hidden lg:block">
+                    <NavigationMenuList className="flex space-x-4 justify-end">
+                        {menuItems.map((item) => (
+                            <NavigationMenuItem key={item.id}>
                                 <NavigationMenuLink
-                                    href={`#${item.toLowerCase()}`}
-                                    className="hover:text-[#F97316] dark:hover:text-[#F97316] transition-colors"
+                                    href={`#${item.id}`}
+                                    className="hover:text-[#F97316] dark:hover:text-[#F97316] transition-colors text-sm"
                                     onClick={(e) => {
-                                        e.preventDefault(); // Empêche le comportement par défaut du lien
-                                        scrollToSection(item.toLowerCase());
+                                        e.preventDefault();
+                                        scrollToSection(item.id);
                                     }}
                                 >
-                                    {item}
+                                    {item.label}
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                         ))}
@@ -81,7 +96,7 @@ const Header = () => {
                     <Button
                         variant="outline"
                         size="icon"
-                        className="md:hidden rounded-full border-[#F97316] hover:bg-[#F97316]/10"
+                        className="lg:hidden rounded-full border-[#F97316] hover:bg-[#F97316]/10"
                         onClick={toggleMobileMenu}
                         aria-label="Ouvrir le menu"
                     >
@@ -95,21 +110,21 @@ const Header = () => {
                                 absolute top-full right-0 w-64 mt-2
                                 ${theme === "dark" ? "bg-[#0F172A] text-[#E2E8F0]" : "bg-[#FFF7ED] text-[#0A192F]"} 
                                 shadow-md rounded-lg transition-all duration-300 z-50 border border-[#F97316]/20
+                                max-h-[80vh] overflow-y-auto
                             `}
                         >
-                            <nav className="flex flex-col p-4 space-y-4">
-                                {["Accueil","Expérience", "Projets", "Compétences", "Contact"].map((item) => (
+                            <nav className="flex flex-col p-4 space-y-3">
+                                {menuItems.map((item) => (
                                     <a
-                                        key={item}
-                                        href={`#${item.toLowerCase()}`}
-                                        className="hover:text-[#F97316] dark:hover:text-[#F97316] transition-colors block"
+                                        key={item.id}
+                                        href={`#${item.id}`}
+                                        className="hover:text-[#F97316] dark:hover:text-[#F97316] transition-colors block py-2 px-3 rounded-lg hover:bg-[#F97316]/10"
                                         onClick={(e) => {
-                                            e.preventDefault(); // Empêche le comportement par défaut du lien
-                                            scrollToSection(item.toLowerCase());
-                                            setIsMenuOpen(false); // Ferme le menu mobile après un clic
+                                            e.preventDefault();
+                                            scrollToSection(item.id);
                                         }}
                                     >
-                                        {item}
+                                        {item.label}
                                     </a>
                                 ))}
                             </nav>
