@@ -52,7 +52,7 @@ const Header = () => {
                         flex items-center justify-between px-6 py-2.5 rounded-2xl
                         transition-all duration-500 border
                         ${scrolled 
-                            ? "w-full max-w-2xl bg-background/80 blur-xl border-foreground/5 shadow-sm" 
+                            ? "w-full max-w-2xl bg-background/80 backdrop-blur-xl border-foreground/5 shadow-sm" 
                             : "w-full max-w-5xl bg-transparent border-transparent"}
                     `}
                 >

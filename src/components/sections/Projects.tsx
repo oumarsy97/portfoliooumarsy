@@ -128,7 +128,7 @@ const projects = [
         backlink: "https://github.com/oumarsy97/monprojetflutter.git",
         category: "Mobile",
         date: "Nov 2024",
-        image: "img_1.png"
+        image: "/img_1.png"
     },
     {
         title: "System Scolaire",

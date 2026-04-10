@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Github, Linkedin, Twitter,  Heart, ArrowUp, MessageCircle } from "lucide-react";

@@ -9,7 +9,6 @@ import ProjectsShowcase from "../components/sections/Projects";
 import { LoadingScreen } from "@/components/sections/Loading";
 import { 
     FormationsSection, 
-    ServicesSection, 
     DisponibiliteSection 
 } from "@/components/sections/FormationsSection";
 import { trackVisitor, trackSectionView } from "@/lib/firebase";
@@ -93,10 +92,7 @@ const Home: React.FC = () => {
                             <FormationsSection />
                         </section>
 
-                        {/* Services Section */}
-                        <section id="services">
-                            <ServicesSection />
-                        </section>
+                        {/* Contact Section */}
 
                         {/* Contact Section */}
                         <section id="contact">
