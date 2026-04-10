@@ -1,29 +1,20 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import Header from "../components/layout/Header";
 import Hero from "../components/sections/Hero";
 import SkillsSection from "../components/sections/Skills";
 import ExperienceSection from "@/components/sections/Experience";
 import ProjectsShowcase from "../components/sections/Projects";
-import ContactSection from "../components/sections/Contact";
 import { LoadingScreen } from "@/components/sections/Loading";
-import { FormationsSection } from "@/components/sections/FormationsSection";
+import { 
+    FormationsSection, 
+    ServicesSection, 
+    DisponibiliteSection 
+} from "@/components/sections/FormationsSection";
 import { trackVisitor, trackSectionView } from "@/lib/firebase";
-
-const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6, ease: "easeOut" },
-};
-
-const staggerChildren = {
-    animate: {
-        transition: {
-            staggerChildren: 0.2,
-        },
-    },
-};
+import { SpotlightBackground } from "@/components/components/ui/SpotlightBackground";
+import { Github, Linkedin, Twitter } from "lucide-react";
 
 const Home: React.FC = () => {
     const [loading, setLoading] = useState(true);
@@ -31,19 +22,17 @@ const Home: React.FC = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 5000);
+        }, 2000);
 
         return () => clearTimeout(timer);
     }, []);
 
-    // Enregistrer la visite une fois le chargement terminé
     useEffect(() => {
         if (!loading) {
             trackVisitor();
         }
     }, [loading]);
 
-    // Observer les sections pour tracker les vues
     useEffect(() => {
         if (loading) return;
 
@@ -56,10 +45,9 @@ const Home: React.FC = () => {
                     }
                 });
             },
-            { threshold: 0.5 } // La section doit être visible à 50%
+            { threshold: 0.2 }
         );
 
-        // Observer toutes les sections
         const sections = document.querySelectorAll("section[id]");
         sections.forEach((section) => observer.observe(section));
 
@@ -69,90 +57,105 @@ const Home: React.FC = () => {
     }, [loading]);
 
     return (
-        <>
+        <div className="relative min-h-screen selection:bg-primary/30 selection:text-primary overflow-x-hidden">
             <AnimatePresence mode="wait">
-                {loading && <LoadingScreen />}
+                {loading && <LoadingScreen key="loading" />}
             </AnimatePresence>
 
             {!loading && (
-                <motion.div
-                    initial="initial"
-                    animate="animate"
-                    className="bg-gradient-to-br from-[#FFF7ED] to-[#FFEFD5] dark:from-[#0A192F] dark:to-[#0F172A] text-[#0A192F] dark:text-[#E2E8F0]"
-                >
+                <div className="relative">
+                    <SpotlightBackground />
                     <Header />
 
-                    <motion.main
-                        variants={staggerChildren}
-                        className="px-4 sm:px-8 py-12 mx-auto max-w-screen-xl"
-                    >
+                    <main className="relative w-full">
                         {/* Hero Section */}
-                        <motion.section
-                            id="accueil"
-                            variants={fadeInUp}
-                            className="flex flex-col items-center justify-center py-16 md:py-24 text-center space-y-8"
-                        >
-                            <Hero/>
-                        </motion.section>
+                        <section id="accueil" className="min-h-screen flex items-center justify-center">
+                            <Hero />
+                        </section>
 
                         {/* Experience Section */}
-                        <motion.section
-                            id="expérience"
-                            variants={fadeInUp}
-                            className="space-y-12 py-16 md:py-24 bg-[#FFF7ED]/50 dark:bg-[#0A192F]/50 rounded-3xl"
-                        >
-                            <ExperienceSection/>
-                        </motion.section>
+                        <section id="expérience">
+                            <ExperienceSection />
+                        </section>
                         
                         {/* Projects Section */}
-                        <motion.section
-                            id="projets"
-                            variants={fadeInUp}
-                            className="space-y-12 py-16 md:py-24 bg-gradient-to-br from-[#FFF7ED]/30 to-[#FFEFD5]/30 dark:from-[#0F172A]/30 dark:to-[#0A192F]/30 rounded-3xl"
-                        >
-                            <ProjectsShowcase/>
-                        </motion.section>
+                        <section id="projets">
+                            <ProjectsShowcase />
+                        </section>
 
                         {/* Skills Section */}
-                        <motion.section
-                            id="compétences"
-                            variants={fadeInUp}
-                            className="space-y-12 py-16 md:py-24"
-                        >
-                            <SkillsSection/>
-                        </motion.section>
+                        <section id="compétences">
+                            <SkillsSection />
+                        </section>
 
                         {/* Formations Section */}
-                        <motion.section
-                            id="formations"
-                            variants={fadeInUp}
-                            className="space-y-12 py-16 md:py-24"
-                        >
-                            <FormationsSection/>
-                        </motion.section>
+                        <section id="formations">
+                            <FormationsSection />
+                        </section>
+
+                        {/* Services Section */}
+                        <section id="services">
+                            <ServicesSection />
+                        </section>
 
                         {/* Contact Section */}
-                        <motion.section
-                            id="contact"
-                            variants={fadeInUp}
-                            className="space-y-12 py-16 md:py-24 bg-gradient-to-br from-[#F97316]/5 to-[#8B5CF6]/5 dark:from-[#F97316]/10 dark:to-[#8B5CF6]/10 rounded-3xl"
-                        >
-                            <ContactSection/>
-                        </motion.section>
-                    </motion.main>
+                        <section id="contact">
+                            <DisponibiliteSection />
+                        </section>
+                    </main>
 
                     {/* Footer */}
-                    <motion.footer
-                        variants={fadeInUp}
-                        className="py-8 bg-gradient-to-r from-[#FFF7ED] via-[#FFEFD5] to-[#FFF7ED] dark:from-[#0A192F] dark:via-[#0F172A] dark:to-[#0A192F] text-center border-t border-[#F97316]/20 dark:border-[#06B6D4]/20"
-                    >
-                        <p className="text-sm text-[#0A192F]/70 dark:text-[#E2E8F0]/70">
-                            © {new Date().getFullYear()} Oumar SY. Tous droits réservés.
-                        </p>
-                    </motion.footer>
-                </motion.div>
+                    <footer className="relative z-20 py-20 px-4 border-t border-foreground/5 overflow-hidden">
+                        <div className="max-w-7xl mx-auto space-y-12">
+                            <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+                                <div className="flex flex-col items-center md:items-start gap-2">
+                                    <h2 className="text-3xl font-black tracking-tighter uppercase">Oumar <span className="text-primary">SY_</span></h2>
+                                    <p className="text-xs font-bold text-foreground/20 uppercase tracking-[0.2em]">Engineering & Design</p>
+                                </div>
+                                
+                                <div className="flex items-center gap-10 text-[10px] font-black uppercase tracking-widest text-foreground/40">
+                                    <a href="#accueil" className="hover:text-primary transition-colors">Accueil</a>
+                                    <a href="#projets" className="hover:text-primary transition-colors">Projets</a>
+                                    <a href="#expérience" className="hover:text-primary transition-colors">Expérience</a>
+                                    <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
+                                </div>
+
+                                <div className="flex items-center gap-6">
+                                    {[
+                                        { icon: <Github size={18} />, href: "https://github.com/oumarsy97" },
+                                        { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/in/oumarsy97/" },
+                                        { icon: <Twitter size={18} />, href: "https://twitter.com/oumarsy97" }
+                                    ].map((social, i) => (
+                                        <a 
+                                            key={i} 
+                                            href={social.href} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            className="w-10 h-10 rounded-xl bg-foreground/5 flex items-center justify-center text-foreground/40 hover:text-primary hover:bg-primary/5 transition-all"
+                                        >
+                                            {social.icon}
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="pt-12 border-t border-foreground/[0.02] flex flex-col md:flex-row items-center justify-between gap-6">
+                                <p className="text-[10px] font-black text-foreground/10 uppercase tracking-widest">
+                                    © {new Date().getFullYear()} Oumar SY. All rights reserved.
+                                </p>
+                                <div className="flex items-center gap-3">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-green-500/20 animate-pulse" />
+                                    <span className="text-[9px] font-black text-foreground/20 uppercase tracking-[0.2em]">System Status: Operational</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        {/* Background Decoration */}
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+                    </footer>
+                </div>
             )}
-        </>
+        </div>
     );
 };
 

@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import AppRoutes from './routes';
-import Header from "@/components/layout/Header";
 import {AnimatePresence} from "framer-motion";
 import {LoadingScreen} from "@/components/sections/Loading";
-import Footer from './components/layout/Footer';
 
 
 const App: React.FC = () => {
@@ -18,15 +16,16 @@ const App: React.FC = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-background dark:bg-background-dark text-text dark:text-text-dark transition-colors duration-300">
+        <div className="min-h-screen bg-background text-foreground transition-colors duration-500 overflow-x-hidden selection:bg-primary/20">
+            <div className="grain" />
             <AnimatePresence mode="wait">
                 {loading && <LoadingScreen />}
             </AnimatePresence>
-            {!loading &&  <Header /> }
-            <main className="pt-16 animate-fade-in">
-                <AppRoutes />
-            </main>
-            <Footer />
+            {!loading && (
+                <main className="relative">
+                    <AppRoutes />
+                </main>
+            )}
         </div>
     );
 };

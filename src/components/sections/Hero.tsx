@@ -1,208 +1,139 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import {
     GithubIcon,
     LinkedinIcon,
     TwitterIcon,
-    DownloadIcon,
-    MessageCircle,
+    ArrowRight,
+    MapPin,
+    Calendar
 } from 'lucide-react';
-import { Button } from "@/components/components/ui/button";
-import { Card } from "@/components/components/ui/card";
-import { Badge } from "@/components/components/ui/badge";
 
 const Hero: React.FC = () => {
-    const [isHovered, setIsHovered] = useState(false);
-
     const socialLinks = [
-        {
-            Icon: GithubIcon,
-            href: "https://github.com/oumarsy97",
-        },
-        {
-            Icon: LinkedinIcon,
-            href: "https://www.linkedin.com/in/oumarsy97/",
-        },
-        {
-            Icon: TwitterIcon,
-            href: "https://twitter.com/oumarsy97",
-        },
-        {
-            Icon: MessageCircle,
-            href: "https://api.whatsapp.com/send/?phone=+221781807229&text=Hello+Oumar+Comment+vous+allez",
-        }
+        { Icon: GithubIcon, href: "https://github.com/oumarsy97" },
+        { Icon: LinkedinIcon, href: "https://www.linkedin.com/in/oumarsy97/" },
+        { Icon: TwitterIcon, href: "https://twitter.com/oumarsy97" },
     ];
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                delayChildren: 0.3,
-                staggerChildren: 0.2,
-            }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { y: 50, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                type: "spring",
-                stiffness: 120
-            }
-        }
-    };
-
     return (
-        <div
-            className="relative min-h-screen bg-gradient-to-br from-[#FFF7ED] to-[#FFEFD5] dark:from-[#0A192F] dark:to-[#0F172A] flex items-center justify-center overflow-hidden"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-        >
-            <motion.div
-                className="absolute inset-0 z-0 opacity-50"
-                animate={{
-                    background: isHovered
-                        ? 'linear-gradient(to bottom right, rgba(249, 115, 22, 0.2), rgba(6, 182, 212, 0.2), rgba(139, 92, 246, 0.2))'
-                        : 'linear-gradient(to bottom right, rgba(249, 115, 22, 0.1), rgba(6, 182, 212, 0.1), rgba(139, 92, 246, 0.1))'
-                }}
-                transition={{duration: 2, repeat: Infinity, repeatType: "reverse"}}
-            />
+        <section id="accueil" className="relative h-[100vh] min-h-[700px] flex items-center justify-center pt-20 overflow-hidden">
+            {/* Soft Background Accent */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/[0.03] rounded-full blur-[120px] pointer-events-none" />
+            
+            <div className="container mx-auto px-6 relative z-10">
+                <div className="max-w-6xl mx-auto flex flex-col items-center text-center space-y-12">
+                    
+                    {/* Status & Location */}
+                    <motion.div 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="flex flex-wrap items-center justify-center gap-6"
+                    >
+                        <div className="flex items-center gap-2 text-foreground/40 text-[10px] font-bold uppercase tracking-[0.2em]">
+                            <MapPin size={12} className="text-primary" />
+                            Dakar, Sénégal / Remote
+                        </div>
+                        <div className="w-1 h-1 rounded-full bg-foreground/10 hidden md:block" />
+                        <div className="flex items-center gap-2 text-foreground/40 text-[10px] font-bold uppercase tracking-[0.2em]">
+                            <Calendar size={12} className="text-primary" />
+                            Disponible Janvier 2026
+                        </div>
+                    </motion.div>
 
-            <div className="container mx-auto px-4 relative z-10">
-                <Card
-                    className="bg-white/90 dark:bg-[#0F172A]/90 backdrop-blur-xl border-2 border-[#F97316]/20 dark:border-[#06B6D4]/20 shadow-2xl rounded-2xl">
-                    <div className="grid md:grid-cols-2 gap-12 p-8 lg:p-16 items-center">
-                        <motion.div
-                            variants={containerVariants}
-                            initial="hidden"
-                            animate="visible"
-                            className="space-y-6"
+                    {/* Main Headlines */}
+                    <div className="space-y-6">
+                        <motion.h1 
+                            initial={{ opacity: 0, filter: 'blur(10px)', y: 20 }}
+                            animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+                            transition={{ duration: 1, ease: "easeOut" }}
+                            className="text-6xl md:text-8xl lg:text-[110px] font-black tracking-[-0.04em] leading-[0.95] text-foreground"
                         >
-                            <motion.h1
-                                variants={itemVariants}
-                                className="text-4xl lg:text-6xl font-bold text-[#0A192F] dark:text-[#E2E8F0] tracking-tight"
-                            >
-                                Oumar Sy
-                            </motion.h1>
+                            Software <br /> Engineering 
+                            <span className="text-primary italic">.</span>
+                        </motion.h1>
 
-                            <motion.div variants={itemVariants}>
-                                <Badge
-                                    variant="outline"
-                                    className="mb-4 bg-gradient-to-r from-[#F97316]/10 to-[#8B5CF6]/10 text-[#0A192F] dark:text-[#E2E8F0] border-[#F97316]/30 dark:border-[#06B6D4]/30"
-                                >
-                                    Développeur Full Stack certifé à l'Orange Digital Center
-                                </Badge>
-                            </motion.div>
-
-                            <motion.div
-                                variants={itemVariants}
-                                className="text-2xl lg:text-4xl font-semibold bg-gradient-to-r from-[#F97316] via-[#06B6D4] to-[#8B5CF6] bg-clip-text text-transparent"
-                            >
-                                <TypeAnimation
-                                    sequence={[
-                                        'Création Web Innovante',
-                                        1000,
-                                        'Applications évolutives',
-                                        1000,
-                                        'Solutions Digitales',
-                                        1000,
-                                        'Gestion de Projets Agile',
-                                        1000,
-                                        'Collaboration en Équipe',
-                                        1000
-                                    ]}
-                                    wrapper="span"
-                                    speed={50}
-                                    repeat={Infinity}
-                                />
-                            </motion.div>
-
-                            <motion.p
-                                variants={itemVariants}
-                                className="text-[#0A192F]/70 dark:text-[#E2E8F0]/70 leading-relaxed"
-                            >
-                                Développeur full-stack passionné par l'innovation technologique, spécialisé dans les technologies web et mobile. Créatif, autonome et orienté résultats, je construis des solutions performantes et évolutives. Avec une forte capacité d'écoute et un esprit d'équipe, j'assure une communication claire pour atteindre les objectifs communs.
-                            </motion.p>
-
-                            <motion.div
-                                variants={itemVariants}
-                                className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4"
-                            >
-                                <Button
-                                    variant="outline"
-                                    className="w-full md:w-auto bg-gradient-to-r from-[#F97316] to-[#8B5CF6] text-white border-none hover:opacity-90 transition-opacity"
-                                    onClick={() => window.open('https://cvdesignr.com/p/670e5f7cbe58a', '_blank')}
-                                >
-                                    <DownloadIcon className="mr-2" size={18}/>
-                                    Voir CV
-                                </Button>
-                            </motion.div>
-
-                            <motion.div
-                                variants={itemVariants}
-                                className="flex space-x-4 mt-6"
-                            >
-                                {socialLinks.map((link, index) => (
-                                    <motion.a
-                                        key={index}
-                                        href={link.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        whileHover={{scale: 1.2}}
-                                        whileTap={{scale: 0.9}}
-                                        className="text-[#F97316] dark:text-[#06B6D4] hover:text-[#8B5CF6] dark:hover:text-[#8B5CF6] transition-colors"
-                                    >
-                                        <link.Icon size={24}/>
-                                    </motion.a>
-                                ))}
-                            </motion.div>
-                        </motion.div>
-
-                        <motion.div
-                            variants={itemVariants}
-                            className="hidden md:flex justify-center items-center"
-                            animate={{
-                                rotate: isHovered ? [0, 5, -5, 0] : 0,
-                                scale: isHovered ? [1, 1.05, 0.95, 1] : 1
-                            }}
-                            transition={{
-                                duration: 2,
-                                repeat: Infinity,
-                                repeatType: "mirror"
-                            }}
+                        <motion.div 
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 1, delay: 0.5 }}
+                            className="text-xl md:text-2xl font-bold text-foreground/40 tracking-tight"
                         >
-                            <div className="relative">
-                                <motion.div
-                                    className="absolute -inset-2 bg-gradient-to-r from-[#F97316] via-[#06B6D4] to-[#8B5CF6] rounded-full opacity-30 blur-xl"
-                                    animate={{
-                                        scale: isHovered ? [1, 1.2, 0.8, 1] : 1,
-                                        opacity: isHovered ? [0.3, 0.5, 0.2, 0.3] : 0.3
-                                    }}
-                                    transition={{
-                                        duration: 3,
-                                        repeat: Infinity,
-                                        repeatType: "mirror"
-                                    }}
-                                />
-                                <div
-                                    className="relative z-10 w-64 h-64 lg:w-96 lg:h-96 bg-[#FFF7ED] dark:bg-[#0F172A] rounded-full overflow-hidden border-4 border-[#F97316]/20 dark:border-[#06B6D4]/20">
-                                    <img
-                                        src="/image.png"
-                                        alt="Oumar Sy"
-                                        className=" object-cover object-center"
-                                    />
-                                </div>
-                            </div>
+                            <TypeAnimation
+                                sequence={[
+                                    'Architecting Scalable Systems.',
+                                    2000,
+                                    'Building High-Performance Apps.',
+                                    2000,
+                                    'Full Stack Excellence.',
+                                    2000,
+                                ]}
+                                speed={60}
+                                repeat={Infinity}
+                            />
                         </motion.div>
                     </div>
-                </Card>
+
+                    {/* Bio Paragraph */}
+                    <motion.p 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.7 }}
+                        className="text-lg md:text-xl text-foreground/50 max-w-2xl font-medium leading-relaxed"
+                    >
+                        Ingénieur logiciel passionné par la conception d'architectures robustes 
+                        et le développement d'interfaces modernes. Je transforme des visions 
+                        complexes en produits digitaux performants.
+                    </motion.p>
+
+                    {/* Actions */}
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.9 }}
+                        className="flex flex-col sm:flex-row items-center gap-8 pt-6"
+                    >
+                        <button 
+                            onClick={() => {
+                                const el = document.getElementById('projets');
+                                el?.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                            className="group relative px-10 py-5 bg-foreground text-background rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:scale-[1.02] transition-all flex items-center gap-3"
+                        >
+                            Voir mes travaux
+                            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                        </button>
+
+                        <div className="flex items-center gap-1">
+                            {socialLinks.map((link, idx) => (
+                                <a 
+                                    key={idx} 
+                                    href={link.href} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="p-4 text-foreground/30 hover:text-primary transition-colors"
+                                >
+                                    <link.Icon size={20} />
+                                </a>
+                            ))}
+                        </div>
+                    </motion.div>
+                </div>
             </div>
-        </div>
+
+            {/* Subtle Scroll Indicator */}
+            <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5, duration: 1 }}
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+            >
+                <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-foreground/20">Scroll</span>
+                <div className="w-px h-10 bg-gradient-to-b from-foreground/20 to-transparent" />
+            </motion.div>
+        </section>
     );
 };
 

@@ -1,6 +1,5 @@
-import type { Config } from 'tailwindcss'
-
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+const config = {
 	content: [
 		'./src/**/*.{js,ts,jsx,tsx,mdx}',
 	],
@@ -8,26 +7,39 @@ const config: Config = {
 	theme: {
 		extend: {
 			colors: {
+				border: "hsl(var(--border))",
+				input: "hsl(var(--input))",
+				ring: "hsl(var(--ring))",
+				background: "hsl(var(--background))",
+				foreground: "hsl(var(--foreground))",
 				primary: {
-					DEFAULT: '#1A6062',
-					light: '#2C8F92',
-					dark: '#135456',
+					DEFAULT: "hsl(var(--primary))",
+					foreground: "hsl(var(--primary-foreground))",
 				},
 				secondary: {
-					DEFAULT: '#FF6B6B',
-					light: '#FF8F8F',
-					dark: '#E55E5E',
+					DEFAULT: "hsl(var(--secondary))",
+					foreground: "hsl(var(--secondary-foreground))",
 				},
-				background: {
-					light: '#F4F4F4',
-					DEFAULT: '#FFFFFF',
-					dark: '#1F2937',
+				destructive: {
+					DEFAULT: "hsl(var(--destructive))",
+					foreground: "hsl(var(--destructive-foreground))",
 				},
-				text: {
-					light: '#333333',
-					DEFAULT: '#1F2937',
-					dark: '#F9FAFB',
-				}
+				muted: {
+					DEFAULT: "hsl(var(--muted))",
+					foreground: "hsl(var(--muted-foreground))",
+				},
+				accent: {
+					DEFAULT: "hsl(var(--accent))",
+					foreground: "hsl(var(--accent-foreground))",
+				},
+				popover: {
+					DEFAULT: "hsl(var(--popover))",
+					foreground: "hsl(var(--popover-foreground))",
+				},
+				card: {
+					DEFAULT: "hsl(var(--card))",
+					foreground: "hsl(var(--card-foreground))",
+				},
 			},
 			transitionProperty: {
 				'colors': 'color, background-color, border-color, text-decoration-color, fill, stroke',
