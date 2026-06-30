@@ -17,7 +17,7 @@ const App: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-background text-foreground transition-colors duration-500 overflow-x-hidden selection:bg-primary/20">
-            <div className="grain" />
+
             <AnimatePresence mode="wait">
                 {loading && <LoadingScreen />}
             </AnimatePresence>

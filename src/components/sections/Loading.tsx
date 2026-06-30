@@ -70,7 +70,7 @@ export const LoadingScreen = () => {
 
     return (
         <motion.div
-            className="fixed inset-0 flex flex-col items-center justify-center z-[100] overflow-hidden bg-[#FFF7ED] dark:bg-[#020617]"
+            className="fixed inset-0 flex flex-col items-center justify-center z-[100] overflow-hidden bg-background"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit="exit"

@@ -22,7 +22,7 @@ export const SpotlightBackground: React.FC = () => {
     return (
         <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
             {/* Mesh Background */}
-            <div className="absolute inset-0 bg-[#FFF7ED] dark:bg-[#020617] transition-colors duration-500" />
+            <div className="absolute inset-0 bg-background transition-colors duration-500" />
             
             {/* Animated Spotlights */}
             <motion.div

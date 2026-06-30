@@ -10,18 +10,35 @@ import {
 
 const projects = [
     {
-        title: "Travail Global V2",
-        subtitle: "HR Tech & Recruitment",
-        description: "Plateforme de recrutement internationale. Moteur de recherche d'offres et gestion de carrières à grande échelle.",
-        fullDescription: "Refonte intégrale de la plateforme Travail Global. Développement d'un écosystème robuste avec un frontend React TS performant et un backend NestJS scalable, offrant une expérience utilisateur fluide et une gestion de données complexe.",
-        technologies: ["React TS", "NestJS", "PostgreSQL", "Tailwind", "Firebase"],
+        title: "TokTok SaaS",
+        subtitle: "Solution de Gestion pour la Restauration",
+        description: "Plateforme SaaS complète avec prises de commandes temps réel, écrans cuisine KDS et scanners de tickets QR Code.",
+        fullDescription: "Conception et développement d'une plateforme SaaS destinée aux professionnels de la restauration. L'application digitalise l'ensemble du processus de gestion avec des interfaces optimisées pour chaque métier (Admin, Caissier, Cuisinier, Serveur). J'ai mis en place la prise de commande synchronisée en temps réel, le système d'affichage pour la cuisine (KDS), la gestion des tickets par scan QR Code, ainsi que les tableaux de bord analytiques.",
+        technologies: ["React", "TypeScript", "Tailwind", "NestJS", "PostgreSQL", "Socket.io"],
         features: [
-            "API REST robuste sous NestJS",
-            "Dashboard candidat immersif",
-            "Architecture découplée performante",
-            "Optimisation SEO & UX"
+            "Synchronisation en temps réel (WebSockets)",
+            "Écran Cuisine KDS dynamique",
+            "Scanner de tickets QR Code intégré",
+            "Tableaux de bord analytiques"
         ],
-        deployLink: "https://v2.travailglobal.com/",
+        deployLink: "https://toktoksn.com/business",
+        category: "FullStack",
+        date: "Mai — Juin 2026",
+        image: "/toktok.png"
+    },
+    {
+        title: "Global Travail",
+        subtitle: "Plateforme de Recrutement & HR Tech",
+        description: "Application de mise en relation candidats/employeurs. Gestion des candidatures et traitement de CV en ligne.",
+        fullDescription: "Développement d'une plateforme complète de recrutement et de gestion des ressources humaines. Facilitation de la mise en relation avec une gestion fine des offres, des candidatures et du traitement automatisé de CV (lecture et parsing PDF). Intégration d'un système de paiement sécurisé, gestion cloud des fichiers, et authentification multicanale (Google OAuth, Firebase).",
+        technologies: ["React TS", "NestJS", "PostgreSQL", "Tailwind", "Stripe", "Supabase"],
+        features: [
+            "Parsing automatisé de CV (PDF/Word)",
+            "Système de paiement sécurisé (Stripe)",
+            "Authentification multicanale OAuth",
+            "Architecture découplée performante"
+        ],
+        deployLink: "https://globaltravail.com/",
         category: "FullStack",
         date: "Mars — Avril 2026",
         image: "/v2travailglobal.png"
@@ -264,8 +281,6 @@ const ProjectModal = ({ project, onClose }: any) => {
 };
 
 const ProjectCard = ({ project, index, onClick }: any) => {
-    const isMobile = project.category === "Mobile";
-    
     return (
         <motion.div
             layout
@@ -273,47 +288,30 @@ const ProjectCard = ({ project, index, onClick }: any) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.05 }}
             onClick={onClick}
-            className="group cursor-pointer h-full"
+            className="group cursor-pointer h-full flex flex-col"
         >
-            <div className="relative h-full flex flex-col">
-                <div className={`
-                    relative rounded-[2.5rem] bg-foreground/5 border border-foreground/5 shrink-0 transition-all duration-700
-                    aspect-[16/11] w-full overflow-hidden
-                    group-hover:border-primary/20 group-hover:bg-primary/[0.02]
-                `}>
-                    <div className="w-full h-full p-0 relative">
-                        <img
-                            src={project.image}
-                            alt={project.title}
-                            className={`w-full h-full ${isMobile ? 'object-contain p-4' : 'object-cover'} transition-all duration-1000 group-hover:scale-105`}
-                        />
-                        <div className="absolute inset-0 bg-background/5 group-hover:bg-transparent transition-colors duration-700" />
-                    </div>
-                    
-                    {/* Shadow Decoration */}
-                    <div className="absolute -inset-4 bg-primary/20 blur-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-1000 pointer-events-none" />
-                    
-                    {/* Action Icon */}
-                    <div className="absolute top-4 right-4 p-4 rounded-2xl bg-background border border-foreground/10 shadow-xl opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500">
-                        <ArrowUpRight size={20} className="text-primary" />
-                    </div>
+            <div className="relative rounded-2xl bg-foreground/5 border border-foreground/10 shrink-0 transition-all duration-500 aspect-video w-full overflow-hidden group-hover:border-foreground/20">
+                <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
 
-                    {isMobile && (
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/4 h-2 bg-foreground/10 rounded-b-lg" />
-                    )}
-                </div>
-
-                <div className="mt-8 space-y-3 flex-grow px-2 text-left">
-                    <div className="flex flex-col items-start gap-1">
-                        <h3 className="text-[28px] font-black tracking-tight leading-none group-hover:text-primary transition-colors">{project.title}</h3>
-                        <div className="flex items-center gap-3">
-                            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">{project.subtitle}</p>
-                            <span className="text-[9px] font-black text-foreground/20 uppercase tracking-widest">{project.date}</span>
-                        </div>
+            <div className="pt-6 flex flex-col gap-3 flex-grow">
+                <div className="flex justify-between items-start">
+                    <div>
+                        <h3 className="text-2xl font-bold tracking-tight text-foreground mb-1 group-hover:text-primary transition-colors">
+                            {project.title}
+                        </h3>
+                        <p className="text-foreground/50 text-sm font-medium">
+                            {project.subtitle}
+                        </p>
                     </div>
-                    <p className="text-sm font-medium text-foreground/40 leading-relaxed line-clamp-2 pt-2">
-                        {project.description}
-                    </p>
+                    <div className="w-10 h-10 rounded-full border border-foreground/10 flex items-center justify-center group-hover:bg-foreground group-hover:text-background transition-colors shrink-0">
+                        <ArrowUpRight size={18} />
+                    </div>
                 </div>
             </div>
         </motion.div>

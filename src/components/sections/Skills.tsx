@@ -79,19 +79,19 @@ const SkillsSection = () => {
                         className="lg:col-span-1 flex flex-col justify-center space-y-8 pr-12"
                     >
                         <div className="space-y-6">
-                            <h2 className="text-5xl lg:text-[100px] lg:text-7xl font-black tracking-[-0.04em] leading-[0.95] text-foreground">
-                                ADN <br />
-                                <span className="text-primary italic">Technique_</span>
+                            <h2 className="text-5xl lg:text-[80px] font-black tracking-[-0.04em] leading-[1] text-foreground">
+                                Expertise
+                                <span className="block text-primary">Technique.</span>
                             </h2>
-                            <p className="text-foreground/40 max-w-sm font-medium text-lg leading-relaxed">
-                                Un arsenal technologique forgé par la rigueur et l'innovation constante, 
-                                focalisé sur la performance.
+                            <p className="text-foreground/60 max-w-sm font-medium text-lg leading-relaxed">
+                                Un ensemble de compétences forgé par la rigueur et l'innovation constante, 
+                                focalisé sur la performance des solutions.
                             </p>
                         </div>
                         
                         <div className="flex items-center gap-4">
                             <div className="w-12 h-px bg-primary" />
-                            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">Full-Stack Mastery</span>
+                            <span className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary">Full-Stack Mastery</span>
                         </div>
                     </motion.div>
 

@@ -41,7 +41,7 @@ const ContactSection = () => {
     ];
 
     return (
-        <div className="container mx-auto max-w-4xl px-4 py-16 bg-gradient-to-br from-[#FFF7ED] to-[#FFEFD5] dark:from-[#0A192F] dark:to-[#0F172A]">
+        <div className="container mx-auto max-w-4xl px-4 py-24 md:py-32">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -49,26 +49,26 @@ const ContactSection = () => {
                 viewport={{ once: true }}
                 className="text-center mb-16"
             >
-                <h2 className="text-4xl font-bold bg-gradient-to-r from-[#F97316] via-[#06B6D4] to-[#8B5CF6] bg-clip-text text-transparent mb-4">
-                    Restons Connectés
+                <h2 className="text-4xl md:text-5xl font-black text-foreground mb-6">
+                    Restons Connectés.
                 </h2>
                 <motion.div
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                     viewport={{ once: true }}
-                    className="w-24 h-1 bg-gradient-to-r from-[#F97316] to-[#8B5CF6] mx-auto rounded-full"
+                    className="w-12 h-1 bg-primary mx-auto rounded-full"
                 />
             </motion.div>
 
             {/* Freelance Availability Message */}
-            <div className="text-center mb-12">
-                <p className="text-lg font-medium text-[#0A192F] dark:text-[#E2E8F0]">
-                    Je suis disponible pour vos projets. N'hésitez pas à me contacter pour vos projets !
+            <div className="text-center mb-16">
+                <p className="text-lg md:text-xl font-medium text-foreground/60 max-w-2xl mx-auto">
+                    Je suis disponible pour de nouvelles opportunités. Discutons de vos futurs projets !
                 </p>
             </div>
 
-            <div className="flex justify-center gap-8 flex-wrap">
+            <div className="flex justify-center gap-6 flex-wrap">
                 {contacts.map((contact, index) => (
                     <motion.a
                         key={index}
@@ -79,27 +79,16 @@ const ContactSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         viewport={{ once: true }}
-                        whileHover={{ scale: 1.05 }}
-                        className="flex flex-col items-center gap-3 px-6 py-3 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 rounded-lg
-                                 bg-white/80 dark:bg-[#0F172A]/80
-                                 backdrop-blur-sm
-                                 shadow-lg hover:shadow-xl hover:shadow-[#F97316]/20 dark:hover:shadow-[#06B6D4]/20
-                                 transition-all duration-200
-                                 border border-[#F97316]/20 dark:border-[#06B6D4]/20"
+                        whileHover={{ y: -5 }}
+                        className="flex flex-col items-center gap-4 px-8 py-6 rounded-2xl
+                                 bg-background border border-foreground/10
+                                 hover:border-foreground/30 hover:bg-foreground/5
+                                 transition-all duration-300 w-full sm:w-[200px]"
                     >
-                        <motion.div
-                            whileHover={{ rotate: 10 }}
-                            transition={{ type: "spring", stiffness: 400 }}
-                            className="relative"
-                        >
-                            <div className={contact.color}>
-                                <contact.icon />
-                            </div>
-                            <div className="absolute inset-0 bg-[#F97316]/10 dark:bg-[#06B6D4]/10
-                                          rounded-full filter blur-xl opacity-0 group-hover:opacity-100
-                                          transition-opacity duration-300" />
-                        </motion.div>
-                        <span className="font-medium text-[#0A192F] dark:text-[#E2E8F0] mt-2">
+                        <div className="text-foreground transition-colors">
+                            <contact.icon />
+                        </div>
+                        <span className="font-bold text-sm tracking-wide text-foreground">
                             {contact.name}
                         </span>
                     </motion.a>

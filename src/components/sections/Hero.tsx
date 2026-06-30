@@ -49,25 +49,24 @@ const Hero: React.FC = () => {
                             initial={{ opacity: 0, filter: 'blur(10px)', y: 20 }}
                             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
                             transition={{ duration: 1, ease: "easeOut" }}
-                            className="text-6xl md:text-8xl lg:text-[110px] font-black tracking-[-0.04em] leading-[0.95] text-foreground"
+                            className="text-5xl md:text-7xl lg:text-[100px] font-black tracking-[-0.04em] leading-[1.1] text-foreground"
                         >
-                            Software <br /> Engineering 
-                            <span className="text-primary italic">.</span>
+                            Oumar Sy
                         </motion.h1>
 
                         <motion.div 
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 1, delay: 0.5 }}
-                            className="text-xl md:text-2xl font-bold text-foreground/40 tracking-tight"
+                            className="text-xl md:text-3xl font-bold text-foreground/60 tracking-tight"
                         >
                             <TypeAnimation
                                 sequence={[
-                                    'Architecting Scalable Systems.',
+                                    'Ingénieur Logiciel.',
                                     2000,
-                                    'Building High-Performance Apps.',
+                                    'Développeur Full-Stack.',
                                     2000,
-                                    'Full Stack Excellence.',
+                                    'Créateur de Solutions Modernes.',
                                     2000,
                                 ]}
                                 speed={60}
@@ -81,11 +80,10 @@ const Hero: React.FC = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.7 }}
-                        className="text-lg md:text-xl text-foreground/50 max-w-2xl font-medium leading-relaxed"
+                        className="text-lg md:text-xl text-foreground/60 max-w-2xl font-medium leading-relaxed"
                     >
-                        Ingénieur logiciel passionné par la conception d'architectures robustes 
-                        et le développement d'interfaces modernes. Je transforme des visions 
-                        complexes en produits digitaux performants.
+                        Ingénieur passionné par la conception d'architectures logicielles robustes. 
+                        J'aide les entreprises à transformer leurs idées en produits digitaux élégants et ultra-performants.
                     </motion.p>
 
                     {/* Actions */}
