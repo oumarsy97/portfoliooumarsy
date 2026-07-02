@@ -34,7 +34,8 @@ const projects = [
         technologies: ["React TS", "NestJS", "PostgreSQL", "Tailwind", "Stripe", "Supabase"],
         features: [
             "Parsing automatisé de CV (PDF/Word)",
-            "Système de paiement sécurisé (Stripe)",
+            "Chat Slack avec web socket et notifications",
+            "Entretien vocal et vidéo avec l'IA",
             "Authentification multicanale OAuth",
             "Architecture découplée performante"
         ],
