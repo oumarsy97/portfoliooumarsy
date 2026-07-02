@@ -11,5 +11,6 @@ export default defineConfig({
   },
   build: {
     outDir: 'build', // Correspond à la sortie attendue par Vercel
+    chunkSizeWarningLimit: 1000,
   },
 });
